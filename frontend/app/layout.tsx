@@ -10,9 +10,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "PredictLive - Real-Time Prediction Markets",
+  title: "SomniaBook - Real-Time Prediction Markets",
   description: "Bet as it happens, get paid instantly. Real-time prediction markets for sports, crypto, and more.",
-  generator: "v0.app",
 }
 
 export default function RootLayout({
