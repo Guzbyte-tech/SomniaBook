@@ -1,0 +1,10 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+
+[rpc_endpoints]
+somnia_testnet = "${SOMNIA_TESTNET_RPC_URL}"
+
+[etherscan]
+somnia = { key = "${SOMNIA_API_KEY}", url = "https://shannon-explorer.somnia.network/api" }
