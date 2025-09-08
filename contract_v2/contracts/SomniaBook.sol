@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import "@openzeppelin/security/ReentrancyGuard.sol";
-import "@openzeppelin/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract SomniaBook is ReentrancyGuard, Ownable {
     
@@ -43,7 +43,7 @@ contract SomniaBook is ReentrancyGuard, Ownable {
         _;
     }
 
-    constructor(address _feeRecipient) {
+    constructor(address _feeRecipient) Ownable(msg.sender) {
         require(_feeRecipient != address(0), "Invalid recipient");
         feeRecipient = _feeRecipient;
     }
