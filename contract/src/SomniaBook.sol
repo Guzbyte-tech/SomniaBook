@@ -3,150 +3,219 @@ pragma solidity ^0.8.19;
 
 import "@openzeppelin/security/ReentrancyGuard.sol";
 import "@openzeppelin/access/Ownable.sol";
+import "@openzeppelin/security/Pausable.sol";
 
-contract SomniaBook is ReentrancyGuard, Ownable {
+contract SomniaBook is ReentrancyGuard, Ownable, Pausable {
     
-    // Events (simplified)
-    event BetPlaced(bytes32 indexed betId, address indexed user, uint256 amount, uint256 odds);
-    event BetResolved(bytes32 indexed betId, bool won, uint256 payout);
-    event BetCancelled(bytes32 indexed betId, uint256 refund);
+    // Events
+    event BetPlaced(bytes32 indexed betId, address indexed user, string marketId, string selection, uint256 amount, uint256 odds, uint256 timestamp);
+    event BetResolved(bytes32 indexed betId, address indexed user, bool won, uint256 payout);
+    event BetCancelled(bytes32 indexed betId, address indexed user, uint256 refundAmount);
+    event FeesWithdrawn(uint256 amount);
 
-    // Optimized struct - removed strings, packed better
+    // Packed struct for gas optimization
     struct Bet {
-        address user;          // 20 bytes
-        uint96 amount;         // 12 bytes (can handle up to ~79 billion ETH)
-        uint96 odds;           // 12 bytes 
-        uint32 timestamp;      // 4 bytes (good until 2106)
-        uint8 status;          // 1 byte: 0=active, 1=won, 2=lost, 3=cancelled, 4=claimed
+        address user;          
+        uint128 amount;        
+        uint128 odds;          
+        uint64 timestamp;      
+        bool resolved;         
+        bool won;              
+        bool claimed;         
+        string marketId;        
+        string selection;      
     }
 
-    // State variables (minimized)
+    // State variables
     mapping(bytes32 => Bet) public bets;
     mapping(address => bytes32[]) public userBets;
+    mapping(string => bytes32[]) public marketBets;
     
-    uint16 public platformFee = 250;              // 2.5% (out of 10000)
-    uint96 public minBetAmount = 0.001 ether;     
-    uint96 public maxBetAmount = 10 ether;        
+    uint256 public platformFee = 250;              // 2.5% (out of 10000)
+    uint256 public constant MAX_FEE = 1000;        // 10% maximum
+    uint128 public minBetAmount = 0.001 ether;     
+    uint128 public maxBetAmount = 10 ether;        
     
     address public feeRecipient;
     uint256 public totalFeesCollected;
-    uint32 public totalBetsPlaced;
+    uint256 public totalBetsPlaced;
+    uint256 public totalAmountWagered;
 
-    // Simplified modifiers
-    modifier validBet(bytes32 _betId) {
-        require(bets[_betId].user != address(0), "Invalid bet");
+    // Modifiers
+    modifier validBetId(bytes32 _betId) {
+        require(bets[_betId].user != address(0), "Bet does not exist");
         _;
     }
 
     modifier onlyBetOwner(bytes32 _betId) {
-        require(bets[_betId].user == msg.sender, "Not owner");
+        require(bets[_betId].user == msg.sender, "Not bet owner");
         _;
     }
 
     constructor(address _feeRecipient) {
-        require(_feeRecipient != address(0), "Invalid recipient");
+        require(_feeRecipient != address(0), "Invalid fee recipient");
         feeRecipient = _feeRecipient;
     }
 
-    // Simplified bet placement (no market/selection strings)
-    function placeBet(uint256 _odds) 
-        external payable nonReentrant returns (bytes32 betId) {
+    // Place a bet
+    function placeBet(string calldata _marketId, string calldata _selection, uint256 _odds) 
+        external payable nonReentrant whenNotPaused returns (bytes32 betId) {
         
-        require(msg.value >= minBetAmount && msg.value <= maxBetAmount, "Invalid amount");
-        require(_odds >= 1000, "Invalid odds");
+        require(msg.value >= minBetAmount && msg.value <= maxBetAmount, "Invalid bet amount");
+        // require(_odds >= 1000, "Odds must be at least 1.0x");
+        require(bytes(_marketId).length > 0 && bytes(_selection).length > 0, "Invalid market or selection");
 
-        betId = keccak256(abi.encodePacked(msg.sender, msg.value, block.timestamp, totalBetsPlaced));
+        // Generate unique bet ID
+        betId = keccak256(abi.encodePacked(msg.sender, _marketId, _selection, msg.value, block.timestamp, totalBetsPlaced));
 
+        // Store bet
         bets[betId] = Bet({
             user: msg.sender,
-            amount: uint96(msg.value),
-            odds: uint96(_odds),
-            timestamp: uint32(block.timestamp),
-            status: 0
+            marketId: _marketId,
+            selection: _selection,
+            amount: uint128(msg.value),
+            odds: uint128(_odds),
+            timestamp: uint64(block.timestamp),
+            resolved: false,
+            won: false,
+            claimed: false
         });
 
+        // Update tracking
         userBets[msg.sender].push(betId);
-        totalBetsPlaced++;
+        marketBets[_marketId].push(betId);
+        
+        // unchecked {
+            totalBetsPlaced++;
+            totalAmountWagered += msg.value;
+        // }
 
-        emit BetPlaced(betId, msg.sender, msg.value, _odds);
+        emit BetPlaced(betId, msg.sender, _marketId, _selection, msg.value, _odds, block.timestamp);
     }
 
-    // Simplified resolution
+    // Resolve bets as win/loss
     function resolveBets(bytes32[] calldata _betIds, bool _won) external onlyOwner {
-        uint256 len = _betIds.length;
-        uint8 status = _won ? 1 : 2;
-        
-        for (uint256 i; i < len;) {
+        uint256 length = _betIds.length;
+        for (uint256 i; i < length;) {
             Bet storage bet = bets[_betIds[i]];
-            require(bet.user != address(0) && bet.status == 0, "Invalid bet");
+            require(bet.user != address(0) && !bet.resolved, "Invalid or resolved bet");
             
-            bet.status = status;
-            emit BetResolved(_betIds[i], _won, 0);
+            bet.resolved = true;
+            bet.won = _won;
             
-            unchecked { ++i; }
+            emit BetResolved(_betIds[i], bet.user, _won, 0);
+            ++i;
+            // unchecked { ++i; }
         }
     }
 
-    // Simplified cancellation
+    // Cancel/refund bets
     function cancelBets(bytes32[] calldata _betIds) external onlyOwner {
-        uint256 len = _betIds.length;
-        
-        for (uint256 i; i < len;) {
+        uint256 length = _betIds.length;
+        for (uint256 i; i < length;) {
             bytes32 betId = _betIds[i];
             Bet storage bet = bets[betId];
             
-            require(bet.user != address(0) && bet.status == 0, "Invalid bet");
+            require(bet.user != address(0) && !bet.resolved && !bet.claimed, "Invalid bet state");
             
-            bet.status = 3;
+            bet.resolved = true;
+            bet.claimed = true;
             
+            // Send refund
             (bool success,) = payable(bet.user).call{value: bet.amount}("");
             require(success, "Refund failed");
             
-            emit BetCancelled(betId, bet.amount);
-            unchecked { ++i; }
+            emit BetCancelled(betId, bet.user, bet.amount);
+            ++i; 
+            // unchecked { ++i; }
         }
     }
 
-    // Simplified claiming
-    function claimWinnings(bytes32 _betId) external nonReentrant validBet(_betId) onlyBetOwner(_betId) {
+    // Claim single winning
+    function claimWinnings(bytes32 _betId) external nonReentrant validBetId(_betId) onlyBetOwner(_betId) {
         Bet storage bet = bets[_betId];
-        require(bet.status == 1, "Cannot claim");
+        require(bet.resolved && bet.won && !bet.claimed, "Cannot claim");
         
-        bet.status = 4;
+        bet.claimed = true;
         
-        uint256 gross = (uint256(bet.amount) * bet.odds) / 1000;
-        uint256 fee = (gross * platformFee) / 10000;
-        uint256 net = gross - fee;
+        uint256 grossPayout = (uint256(bet.amount) * bet.odds) / 1000;
+        uint256 fee = (grossPayout * platformFee) / 10000;
+        uint256 netPayout = grossPayout - fee;
         
         totalFeesCollected += fee;
         
-        (bool success,) = payable(msg.sender).call{value: net}("");
+        (bool success,) = payable(msg.sender).call{value: netPayout}("");
         require(success, "Payout failed");
         
-        emit BetResolved(_betId, true, net);
+        emit BetResolved(_betId, msg.sender, true, netPayout);
     }
 
-    // View functions (simplified)
-    function getBet(bytes32 _betId) external view validBet(_betId) 
-        returns (address user, uint256 amount, uint256 odds, uint256 timestamp, uint8 status) {
+    // Claim multiple winnings
+    function claimMultipleWinnings(bytes32[] calldata _betIds) external nonReentrant {
+        uint256 totalPayout;
+        uint256 totalFees;
+        uint256 length = _betIds.length;
+        
+        for (uint256 i = 0; i < length; i++) {
+            Bet storage bet = bets[_betIds[i]];
+            require(bet.user == msg.sender && bet.resolved && bet.won && !bet.claimed, "Cannot claim bet");
+            
+            bet.claimed = true;
+            
+            uint256 grossPayout = (uint256(bet.amount) * bet.odds) / 1000;
+            uint256 fee = (grossPayout * platformFee) / 10000;
+            
+            totalPayout += grossPayout - fee;
+            totalFees += fee;
+            
+            emit BetResolved(_betIds[i], msg.sender, true, grossPayout - fee);
+        }
+        
+        require(totalPayout > 0, "No winnings");
+        totalFeesCollected += totalFees;
+        
+        (bool success,) = payable(msg.sender).call{value: totalPayout}("");
+        require(success, "Payout failed");
+    }
+
+    // View functions
+    function getBet(bytes32 _betId) external view validBetId(_betId) 
+        returns (address user, string memory marketId, string memory selection, uint256 amount, uint256 odds, uint256 timestamp, bool resolved, bool won, bool claimed) {
         Bet storage bet = bets[_betId];
-        return (bet.user, bet.amount, bet.odds, bet.timestamp, bet.status);
+        return (bet.user, bet.marketId, bet.selection, bet.amount, bet.odds, bet.timestamp, bet.resolved, bet.won, bet.claimed);
     }
 
     function getUserBets(address _user) external view returns (bytes32[] memory) {
         return userBets[_user];
     }
 
-    // Admin functions (minimized)
-    function setPlatformFee(uint16 _fee) external onlyOwner {
-        require(_fee <= 1000, "Fee too high");
+    function getMarketBets(string memory _marketId) external view returns (bytes32[] memory) {
+        return marketBets[_marketId];
+    }
+
+    function calculatePayout(bytes32 _betId) external view validBetId(_betId) 
+        returns (uint256 grossPayout, uint256 fee, uint256 netPayout) {
+        Bet storage bet = bets[_betId];
+        grossPayout = (uint256(bet.amount) * bet.odds) / 1000;
+        fee = (grossPayout * platformFee) / 10000;
+        netPayout = grossPayout - fee;
+    }
+
+    // Admin functions
+    function setPlatformFee(uint256 _fee) external onlyOwner {
+        require(_fee <= MAX_FEE, "Fee too high");
         platformFee = _fee;
     }
 
-    function setBetLimits(uint96 _minBet, uint96 _maxBet) external onlyOwner {
+    function setBetLimits(uint128 _minBet, uint128 _maxBet) external onlyOwner {
         require(_minBet < _maxBet, "Invalid limits");
         minBetAmount = _minBet;
         maxBetAmount = _maxBet;
+    }
+
+    function setFeeRecipient(address _feeRecipient) external onlyOwner {
+        require(_feeRecipient != address(0), "Invalid address");
+        feeRecipient = _feeRecipient;
     }
 
     function withdrawFees() external onlyOwner {
@@ -156,11 +225,20 @@ contract SomniaBook is ReentrancyGuard, Ownable {
         
         (bool success,) = payable(feeRecipient).call{value: amount}("");
         require(success, "Withdrawal failed");
+        
+        emit FeesWithdrawn(amount);
     }
+
+    function pause() external onlyOwner { _pause(); }
+    function unpause() external onlyOwner { _unpause(); }
 
     function emergencyWithdraw() external onlyOwner {
         (bool success,) = payable(owner()).call{value: address(this).balance}("");
-        require(success, "Emergency failed");
+        require(success, "Emergency withdrawal failed");
+    }
+
+    function getContractStats() external view returns (uint256 totalBets, uint256 totalWagered, uint256 contractBalance, uint256 feesCollected) {
+        return (totalBetsPlaced, totalAmountWagered, address(this).balance, totalFeesCollected);
     }
 
     receive() external payable {}

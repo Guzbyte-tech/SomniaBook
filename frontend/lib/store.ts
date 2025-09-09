@@ -1,6 +1,7 @@
 import { create } from "zustand"
 import { apiClient } from "./api-client"
 import type { Event, Market, Bet, User } from "./types"
+// import { User } from "@reown/appkit"
 
 interface AppState {
   user: User
@@ -56,7 +57,19 @@ export const useAppStore = create<AppState>((set, get) => ({
         event.id === eventId
           ? {
               ...event,
-              markets: event.markets.map((market) => (market.id === marketId ? { ...market, outcomes } : market)),
+              markets: event.markets.map((market) =>
+                market.id === marketId
+                  ? {
+                      ...market,
+                      outcomes: market.outcomes.map((outcome) => {
+                        const updated = outcomes.find((o) => o.name === outcome.name)
+                        return updated
+                          ? { ...outcome, odds: updated.odds }
+                          : outcome
+                      }),
+                    }
+                  : market
+              ),
             }
           : event,
       ),

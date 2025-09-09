@@ -1,0 +1,3202 @@
+[
+    {
+        "id": "crypto-bitcoin",
+        "title": "Bitcoin (BTC) Price Prediction",
+        "description": "Current: $112279.00 (0.95% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$112279.00",
+        "markets": [
+            {
+                "id": "bitcoin-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "bitcoin-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "bitcoin-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "bitcoin-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "bitcoin-target-0",
+                        "name": "$117892.95",
+                        "odds": 3.894723317790664,
+                        "impliedProbability": 27.423159270780516
+                    },
+                    {
+                        "id": "bitcoin-target-1",
+                        "name": "$123506.90",
+                        "odds": 2.789784847567211,
+                        "impliedProbability": 38.715425550729705
+                    },
+                    {
+                        "id": "bitcoin-target-2",
+                        "name": "$106665.05",
+                        "odds": 3.148528721207785,
+                        "impliedProbability": 39.46557756470138
+                    },
+                    {
+                        "id": "bitcoin-target-3",
+                        "name": "$101051.10",
+                        "odds": 2.8429192435268424,
+                        "impliedProbability": 25.946300866592996
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 37633841357,
+        "participantCount": 1468
+    },
+    {
+        "id": "crypto-ethereum",
+        "title": "Ethereum (ETH) Price Prediction",
+        "description": "Current: $4313.27 (0.21% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$4313.27",
+        "markets": [
+            {
+                "id": "ethereum-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "ethereum-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "ethereum-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "ethereum-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "ethereum-target-0",
+                        "name": "$4528.93",
+                        "odds": 3.702768604925807,
+                        "impliedProbability": 34.359660699225756
+                    },
+                    {
+                        "id": "ethereum-target-1",
+                        "name": "$4744.60",
+                        "odds": 2.934524344130587,
+                        "impliedProbability": 38.38077419785858
+                    },
+                    {
+                        "id": "ethereum-target-2",
+                        "name": "$4097.61",
+                        "odds": 2.982603771636107,
+                        "impliedProbability": 26.025973167991346
+                    },
+                    {
+                        "id": "ethereum-target-3",
+                        "name": "$3881.94",
+                        "odds": 3.820322399286786,
+                        "impliedProbability": 32.30908888565084
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 26845502618,
+        "participantCount": 1753
+    },
+    {
+        "id": "crypto-ripple",
+        "title": "XRP (XRP) Price Prediction",
+        "description": "Current: $2.98 (3.74% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$2.98",
+        "markets": [
+            {
+                "id": "ripple-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "ripple-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "ripple-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "ripple-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "ripple-target-0",
+                        "name": "$3.13",
+                        "odds": 3.881754830460336,
+                        "impliedProbability": 35.37144725298913
+                    },
+                    {
+                        "id": "ripple-target-1",
+                        "name": "$3.28",
+                        "odds": 3.928825549079609,
+                        "impliedProbability": 37.86007796830977
+                    },
+                    {
+                        "id": "ripple-target-2",
+                        "name": "$2.83",
+                        "odds": 4.198485543014716,
+                        "impliedProbability": 39.286163946133215
+                    },
+                    {
+                        "id": "ripple-target-3",
+                        "name": "$2.68",
+                        "odds": 4.453286126909352,
+                        "impliedProbability": 37.400510048942316
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 6121993360,
+        "participantCount": 1822
+    },
+    {
+        "id": "crypto-tether",
+        "title": "Tether (USDT) Price Prediction",
+        "description": "Current: $1.00 (-0.00% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$1.00",
+        "markets": [
+            {
+                "id": "tether-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "tether-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "tether-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "tether-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "tether-target-0",
+                        "name": "$1.05",
+                        "odds": 2.731594087278072,
+                        "impliedProbability": 26.648302922425987
+                    },
+                    {
+                        "id": "tether-target-1",
+                        "name": "$1.10",
+                        "odds": 4.109185170835826,
+                        "impliedProbability": 31.81961234937584
+                    },
+                    {
+                        "id": "tether-target-2",
+                        "name": "$0.95",
+                        "odds": 2.715590627873855,
+                        "impliedProbability": 38.66010879298183
+                    },
+                    {
+                        "id": "tether-target-3",
+                        "name": "$0.90",
+                        "odds": 3.5860627831351604,
+                        "impliedProbability": 38.41893171285716
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 85484130233,
+        "participantCount": 1919
+    },
+    {
+        "id": "crypto-binancecoin",
+        "title": "BNB (BNB) Price Prediction",
+        "description": "Current: $878.96 (0.38% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$878.96",
+        "markets": [
+            {
+                "id": "binancecoin-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "binancecoin-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "binancecoin-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "binancecoin-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "binancecoin-target-0",
+                        "name": "$922.91",
+                        "odds": 4.0952486890977475,
+                        "impliedProbability": 39.856401553630946
+                    },
+                    {
+                        "id": "binancecoin-target-1",
+                        "name": "$966.86",
+                        "odds": 4.174614645440174,
+                        "impliedProbability": 37.311840014002534
+                    },
+                    {
+                        "id": "binancecoin-target-2",
+                        "name": "$835.01",
+                        "odds": 2.5777354368102037,
+                        "impliedProbability": 32.90460472725904
+                    },
+                    {
+                        "id": "binancecoin-target-3",
+                        "name": "$791.06",
+                        "odds": 4.486141787074784,
+                        "impliedProbability": 33.18834236389363
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 1266887982,
+        "participantCount": 1696
+    },
+    {
+        "id": "crypto-solana",
+        "title": "Solana (SOL) Price Prediction",
+        "description": "Current: $215.07 (4.17% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$215.07",
+        "markets": [
+            {
+                "id": "solana-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "solana-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "solana-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "solana-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "solana-target-0",
+                        "name": "$225.82",
+                        "odds": 2.601932578860644,
+                        "impliedProbability": 39.68374123806479
+                    },
+                    {
+                        "id": "solana-target-1",
+                        "name": "$236.58",
+                        "odds": 3.3696197502789307,
+                        "impliedProbability": 26.04718538962498
+                    },
+                    {
+                        "id": "solana-target-2",
+                        "name": "$204.32",
+                        "odds": 4.209431562914947,
+                        "impliedProbability": 35.24182986832179
+                    },
+                    {
+                        "id": "solana-target-3",
+                        "name": "$193.56",
+                        "odds": 3.787589267631461,
+                        "impliedProbability": 25.332386603060154
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 10463444754,
+        "participantCount": 743
+    },
+    {
+        "id": "crypto-usd-coin",
+        "title": "USDC (USDC) Price Prediction",
+        "description": "Current: $1.00 (-0.00% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$1.00",
+        "markets": [
+            {
+                "id": "usd-coin-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "usd-coin-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "usd-coin-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "usd-coin-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "usd-coin-target-0",
+                        "name": "$1.05",
+                        "odds": 3.812945582148871,
+                        "impliedProbability": 37.67860033077532
+                    },
+                    {
+                        "id": "usd-coin-target-1",
+                        "name": "$1.10",
+                        "odds": 4.035624195706345,
+                        "impliedProbability": 29.119680560884326
+                    },
+                    {
+                        "id": "usd-coin-target-2",
+                        "name": "$0.95",
+                        "odds": 3.3726794546957057,
+                        "impliedProbability": 35.759857807086135
+                    },
+                    {
+                        "id": "usd-coin-target-3",
+                        "name": "$0.90",
+                        "odds": 3.855528940973843,
+                        "impliedProbability": 25.299964169332952
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 8712830625,
+        "participantCount": 2038
+    },
+    {
+        "id": "crypto-staked-ether",
+        "title": "Lido Staked Ether (STETH) Price Prediction",
+        "description": "Current: $4307.49 (0.25% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$4307.49",
+        "markets": [
+            {
+                "id": "staked-ether-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "staked-ether-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "staked-ether-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "staked-ether-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "staked-ether-target-0",
+                        "name": "$4522.86",
+                        "odds": 3.212360312596343,
+                        "impliedProbability": 26.17180104032924
+                    },
+                    {
+                        "id": "staked-ether-target-1",
+                        "name": "$4738.24",
+                        "odds": 3.8445093378321578,
+                        "impliedProbability": 29.587889809659277
+                    },
+                    {
+                        "id": "staked-ether-target-2",
+                        "name": "$4092.12",
+                        "odds": 2.782803720236908,
+                        "impliedProbability": 32.07501484142442
+                    },
+                    {
+                        "id": "staked-ether-target-3",
+                        "name": "$3876.74",
+                        "odds": 2.5375891553786865,
+                        "impliedProbability": 27.952293702904733
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 53902020,
+        "participantCount": 1558
+    },
+    {
+        "id": "crypto-dogecoin",
+        "title": "Dogecoin (DOGE) Price Prediction",
+        "description": "Current: $0.24 (7.03% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$0.24",
+        "markets": [
+            {
+                "id": "dogecoin-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "dogecoin-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "dogecoin-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "dogecoin-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "dogecoin-target-0",
+                        "name": "$0.26",
+                        "odds": 3.5427410853594443,
+                        "impliedProbability": 25.483495226406188
+                    },
+                    {
+                        "id": "dogecoin-target-1",
+                        "name": "$0.27",
+                        "odds": 4.138752547070969,
+                        "impliedProbability": 32.87212856014307
+                    },
+                    {
+                        "id": "dogecoin-target-2",
+                        "name": "$0.23",
+                        "odds": 2.9223612263621583,
+                        "impliedProbability": 39.646379865919684
+                    },
+                    {
+                        "id": "dogecoin-target-3",
+                        "name": "$0.22",
+                        "odds": 3.668422067968338,
+                        "impliedProbability": 38.62928840950195
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 3574455909,
+        "participantCount": 389
+    },
+    {
+        "id": "crypto-cardano",
+        "title": "Cardano (ADA) Price Prediction",
+        "description": "Current: $0.86 (3.68% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$0.86",
+        "markets": [
+            {
+                "id": "cardano-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "cardano-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "cardano-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "cardano-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "cardano-target-0",
+                        "name": "$0.91",
+                        "odds": 3.3494974636318013,
+                        "impliedProbability": 37.903404792646135
+                    },
+                    {
+                        "id": "cardano-target-1",
+                        "name": "$0.95",
+                        "odds": 3.1004428679249845,
+                        "impliedProbability": 36.662459987458384
+                    },
+                    {
+                        "id": "cardano-target-2",
+                        "name": "$0.82",
+                        "odds": 3.3437382878565733,
+                        "impliedProbability": 36.43572229801185
+                    },
+                    {
+                        "id": "cardano-target-3",
+                        "name": "$0.78",
+                        "odds": 2.6872150293858996,
+                        "impliedProbability": 25.561834927369393
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 1708559519,
+        "participantCount": 298
+    },
+    {
+        "id": "crypto-tron",
+        "title": "TRON (TRX) Price Prediction",
+        "description": "Current: $0.33 (0.30% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$0.33",
+        "markets": [
+            {
+                "id": "tron-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "tron-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "tron-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "tron-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "tron-target-0",
+                        "name": "$0.35",
+                        "odds": 2.526216036087377,
+                        "impliedProbability": 33.590816166638106
+                    },
+                    {
+                        "id": "tron-target-1",
+                        "name": "$0.36",
+                        "odds": 2.9357442017678004,
+                        "impliedProbability": 29.39986872230318
+                    },
+                    {
+                        "id": "tron-target-2",
+                        "name": "$0.31",
+                        "odds": 3.6680393007821865,
+                        "impliedProbability": 35.701851976493906
+                    },
+                    {
+                        "id": "tron-target-3",
+                        "name": "$0.30",
+                        "odds": 2.6021638346899305,
+                        "impliedProbability": 32.17534140984222
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 794953559,
+        "participantCount": 1480
+    },
+    {
+        "id": "crypto-wrapped-steth",
+        "title": "Wrapped stETH (WSTETH) Price Prediction",
+        "description": "Current: $5227.32 (0.25% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$5227.32",
+        "markets": [
+            {
+                "id": "wrapped-steth-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "wrapped-steth-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "wrapped-steth-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "wrapped-steth-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "wrapped-steth-target-0",
+                        "name": "$5488.69",
+                        "odds": 3.4000374475933146,
+                        "impliedProbability": 31.655659610018084
+                    },
+                    {
+                        "id": "wrapped-steth-target-1",
+                        "name": "$5750.05",
+                        "odds": 3.6555277270208033,
+                        "impliedProbability": 35.954149387879305
+                    },
+                    {
+                        "id": "wrapped-steth-target-2",
+                        "name": "$4965.95",
+                        "odds": 4.43728610769842,
+                        "impliedProbability": 31.5748278604161
+                    },
+                    {
+                        "id": "wrapped-steth-target-3",
+                        "name": "$4704.59",
+                        "odds": 3.2497689353369816,
+                        "impliedProbability": 35.303921402132005
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 25198553,
+        "participantCount": 1959
+    },
+    {
+        "id": "crypto-chainlink",
+        "title": "Chainlink (LINK) Price Prediction",
+        "description": "Current: $23.07 (2.96% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$23.07",
+        "markets": [
+            {
+                "id": "chainlink-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "chainlink-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "chainlink-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "chainlink-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "chainlink-target-0",
+                        "name": "$24.22",
+                        "odds": 4.224497216114276,
+                        "impliedProbability": 33.990840872150024
+                    },
+                    {
+                        "id": "chainlink-target-1",
+                        "name": "$25.38",
+                        "odds": 2.5177026461240093,
+                        "impliedProbability": 26.885241980893166
+                    },
+                    {
+                        "id": "chainlink-target-2",
+                        "name": "$21.92",
+                        "odds": 3.7303656927111564,
+                        "impliedProbability": 35.23401691560302
+                    },
+                    {
+                        "id": "chainlink-target-3",
+                        "name": "$20.76",
+                        "odds": 3.061015237220153,
+                        "impliedProbability": 34.171558845875495
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 937571936,
+        "participantCount": 366
+    },
+    {
+        "id": "crypto-wrapped-bitcoin",
+        "title": "Wrapped Bitcoin (WBTC) Price Prediction",
+        "description": "Current: $112259.00 (0.80% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$112259.00",
+        "markets": [
+            {
+                "id": "wrapped-bitcoin-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "wrapped-bitcoin-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "wrapped-bitcoin-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "wrapped-bitcoin-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "wrapped-bitcoin-target-0",
+                        "name": "$117871.95",
+                        "odds": 4.2123821554294985,
+                        "impliedProbability": 39.42824105014327
+                    },
+                    {
+                        "id": "wrapped-bitcoin-target-1",
+                        "name": "$123484.90",
+                        "odds": 3.881199268484371,
+                        "impliedProbability": 32.140198195127965
+                    },
+                    {
+                        "id": "wrapped-bitcoin-target-2",
+                        "name": "$106646.05",
+                        "odds": 3.9745579861668037,
+                        "impliedProbability": 25.28109506946324
+                    },
+                    {
+                        "id": "wrapped-bitcoin-target-3",
+                        "name": "$101033.10",
+                        "odds": 3.9316556595237744,
+                        "impliedProbability": 37.457161073709536
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 159241016,
+        "participantCount": 1667
+    },
+    {
+        "id": "crypto-wrapped-beacon-eth",
+        "title": "Wrapped Beacon ETH (WBETH) Price Prediction",
+        "description": "Current: $4647.54 (0.24% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$4647.54",
+        "markets": [
+            {
+                "id": "wrapped-beacon-eth-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "wrapped-beacon-eth-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "wrapped-beacon-eth-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "wrapped-beacon-eth-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "wrapped-beacon-eth-target-0",
+                        "name": "$4879.92",
+                        "odds": 3.9963388004053875,
+                        "impliedProbability": 25.388498326518924
+                    },
+                    {
+                        "id": "wrapped-beacon-eth-target-1",
+                        "name": "$5112.29",
+                        "odds": 3.8148999376266923,
+                        "impliedProbability": 33.3962997163806
+                    },
+                    {
+                        "id": "wrapped-beacon-eth-target-2",
+                        "name": "$4415.16",
+                        "odds": 2.816267504816066,
+                        "impliedProbability": 33.093909340006206
+                    },
+                    {
+                        "id": "wrapped-beacon-eth-target-3",
+                        "name": "$4182.79",
+                        "odds": 2.893250599561617,
+                        "impliedProbability": 38.97126794343164
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 6420846,
+        "participantCount": 456
+    },
+    {
+        "id": "crypto-hyperliquid",
+        "title": "Hyperliquid (HYPE) Price Prediction",
+        "description": "Current: $50.70 (7.62% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$50.70",
+        "markets": [
+            {
+                "id": "hyperliquid-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "hyperliquid-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "hyperliquid-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "hyperliquid-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "hyperliquid-target-0",
+                        "name": "$53.24",
+                        "odds": 4.0225646610433055,
+                        "impliedProbability": 25.5274491052698
+                    },
+                    {
+                        "id": "hyperliquid-target-1",
+                        "name": "$55.77",
+                        "odds": 3.8657821167235644,
+                        "impliedProbability": 39.75169246136706
+                    },
+                    {
+                        "id": "hyperliquid-target-2",
+                        "name": "$48.16",
+                        "odds": 4.108943604759218,
+                        "impliedProbability": 25.057996894306896
+                    },
+                    {
+                        "id": "hyperliquid-target-3",
+                        "name": "$45.63",
+                        "odds": 3.959545485554332,
+                        "impliedProbability": 37.41037979176185
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 634421843,
+        "participantCount": 1210
+    },
+    {
+        "id": "crypto-ethena-usde",
+        "title": "Ethena USDe (USDE) Price Prediction",
+        "description": "Current: $1.00 (-0.07% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$1.00",
+        "markets": [
+            {
+                "id": "ethena-usde-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "ethena-usde-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "ethena-usde-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "ethena-usde-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "ethena-usde-target-0",
+                        "name": "$1.05",
+                        "odds": 4.1215390237414535,
+                        "impliedProbability": 35.35125075675512
+                    },
+                    {
+                        "id": "ethena-usde-target-1",
+                        "name": "$1.10",
+                        "odds": 2.5910704152008557,
+                        "impliedProbability": 28.4954692344587
+                    },
+                    {
+                        "id": "ethena-usde-target-2",
+                        "name": "$0.95",
+                        "odds": 4.005429968929885,
+                        "impliedProbability": 29.310725982278825
+                    },
+                    {
+                        "id": "ethena-usde-target-3",
+                        "name": "$0.90",
+                        "odds": 3.904144818528784,
+                        "impliedProbability": 27.54065242687569
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 813105113,
+        "participantCount": 393
+    },
+    {
+        "id": "crypto-sui",
+        "title": "Sui (SUI) Price Prediction",
+        "description": "Current: $3.49 (2.85% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$3.49",
+        "markets": [
+            {
+                "id": "sui-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "sui-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "sui-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "sui-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "sui-target-0",
+                        "name": "$3.66",
+                        "odds": 2.8142655153505323,
+                        "impliedProbability": 31.348521164583403
+                    },
+                    {
+                        "id": "sui-target-1",
+                        "name": "$3.84",
+                        "odds": 2.767096137921959,
+                        "impliedProbability": 29.89673575838823
+                    },
+                    {
+                        "id": "sui-target-2",
+                        "name": "$3.32",
+                        "odds": 2.6455872980904607,
+                        "impliedProbability": 28.54309348354689
+                    },
+                    {
+                        "id": "sui-target-3",
+                        "name": "$3.14",
+                        "odds": 3.0057056978129353,
+                        "impliedProbability": 29.9832531749837
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 1085187108,
+        "participantCount": 1182
+    },
+    {
+        "id": "crypto-figure-heloc",
+        "title": "Figure Heloc (FIGR_HELOC) Price Prediction",
+        "description": "Current: $1.00 (-0.43% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$1.00",
+        "markets": [
+            {
+                "id": "figure-heloc-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "figure-heloc-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "figure-heloc-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "figure-heloc-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "figure-heloc-target-0",
+                        "name": "$1.05",
+                        "odds": 4.348611776028228,
+                        "impliedProbability": 39.911568345510105
+                    },
+                    {
+                        "id": "figure-heloc-target-1",
+                        "name": "$1.10",
+                        "odds": 2.521492257840325,
+                        "impliedProbability": 26.178834275159925
+                    },
+                    {
+                        "id": "figure-heloc-target-2",
+                        "name": "$0.95",
+                        "odds": 4.255076876348389,
+                        "impliedProbability": 29.82690987304477
+                    },
+                    {
+                        "id": "figure-heloc-target-3",
+                        "name": "$0.90",
+                        "odds": 4.178662154916127,
+                        "impliedProbability": 39.00960580205263
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 10354758,
+        "participantCount": 1908
+    },
+    {
+        "id": "crypto-stellar",
+        "title": "Stellar (XLM) Price Prediction",
+        "description": "Current: $0.38 (4.86% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$0.38",
+        "markets": [
+            {
+                "id": "stellar-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "stellar-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "stellar-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "stellar-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "stellar-target-0",
+                        "name": "$0.40",
+                        "odds": 3.49348265919746,
+                        "impliedProbability": 36.5379411826504
+                    },
+                    {
+                        "id": "stellar-target-1",
+                        "name": "$0.42",
+                        "odds": 2.9990810194350184,
+                        "impliedProbability": 26.844159768302468
+                    },
+                    {
+                        "id": "stellar-target-2",
+                        "name": "$0.36",
+                        "odds": 3.7404376849230507,
+                        "impliedProbability": 32.970382639119826
+                    },
+                    {
+                        "id": "stellar-target-3",
+                        "name": "$0.34",
+                        "odds": 3.1603849551429257,
+                        "impliedProbability": 31.93010687903107
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 355892266,
+        "participantCount": 2165
+    },
+    {
+        "id": "crypto-bitcoin-cash",
+        "title": "Bitcoin Cash (BCH) Price Prediction",
+        "description": "Current: $589.01 (-2.46% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$589.01",
+        "markets": [
+            {
+                "id": "bitcoin-cash-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "bitcoin-cash-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "bitcoin-cash-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "bitcoin-cash-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "bitcoin-cash-target-0",
+                        "name": "$618.46",
+                        "odds": 3.0923907217325235,
+                        "impliedProbability": 32.249450915925124
+                    },
+                    {
+                        "id": "bitcoin-cash-target-1",
+                        "name": "$647.91",
+                        "odds": 3.272988873168125,
+                        "impliedProbability": 30.460799218705255
+                    },
+                    {
+                        "id": "bitcoin-cash-target-2",
+                        "name": "$559.56",
+                        "odds": 4.4874524489536665,
+                        "impliedProbability": 38.01380900641125
+                    },
+                    {
+                        "id": "bitcoin-cash-target-3",
+                        "name": "$530.11",
+                        "odds": 3.599613112160713,
+                        "impliedProbability": 29.550394635525535
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 435481497,
+        "participantCount": 2023
+    },
+    {
+        "id": "crypto-wrapped-eeth",
+        "title": "Wrapped eETH (WEETH) Price Prediction",
+        "description": "Current: $4631.82 (0.29% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$4631.82",
+        "markets": [
+            {
+                "id": "wrapped-eeth-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "wrapped-eeth-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "wrapped-eeth-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "wrapped-eeth-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "wrapped-eeth-target-0",
+                        "name": "$4863.41",
+                        "odds": 4.093934395219959,
+                        "impliedProbability": 27.549745544837812
+                    },
+                    {
+                        "id": "wrapped-eeth-target-1",
+                        "name": "$5095.00",
+                        "odds": 4.0908205920221885,
+                        "impliedProbability": 39.81430908390668
+                    },
+                    {
+                        "id": "wrapped-eeth-target-2",
+                        "name": "$4400.23",
+                        "odds": 3.7497557778963637,
+                        "impliedProbability": 30.228895354906484
+                    },
+                    {
+                        "id": "wrapped-eeth-target-3",
+                        "name": "$4168.64",
+                        "odds": 3.2821442213306264,
+                        "impliedProbability": 39.55153066761357
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 8438044,
+        "participantCount": 1553
+    },
+    {
+        "id": "crypto-avalanche-2",
+        "title": "Avalanche (AVAX) Price Prediction",
+        "description": "Current: $25.45 (3.37% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$25.45",
+        "markets": [
+            {
+                "id": "avalanche-2-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "avalanche-2-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "avalanche-2-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "avalanche-2-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "avalanche-2-target-0",
+                        "name": "$26.72",
+                        "odds": 3.6978210920993435,
+                        "impliedProbability": 37.988164269131346
+                    },
+                    {
+                        "id": "avalanche-2-target-1",
+                        "name": "$28.00",
+                        "odds": 3.0310285156612062,
+                        "impliedProbability": 33.691809247406354
+                    },
+                    {
+                        "id": "avalanche-2-target-2",
+                        "name": "$24.18",
+                        "odds": 4.020090361349954,
+                        "impliedProbability": 37.655592867311086
+                    },
+                    {
+                        "id": "avalanche-2-target-3",
+                        "name": "$22.91",
+                        "odds": 3.1182680970962497,
+                        "impliedProbability": 25.627890059803804
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 631393266,
+        "participantCount": 1694
+    },
+    {
+        "id": "crypto-weth",
+        "title": "WETH (WETH) Price Prediction",
+        "description": "Current: $4314.51 (0.31% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$4314.51",
+        "markets": [
+            {
+                "id": "weth-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "weth-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "weth-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "weth-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "weth-target-0",
+                        "name": "$4530.24",
+                        "odds": 2.52847330860441,
+                        "impliedProbability": 30.305586278585515
+                    },
+                    {
+                        "id": "weth-target-1",
+                        "name": "$4745.96",
+                        "odds": 3.4754150267226067,
+                        "impliedProbability": 28.92186937243473
+                    },
+                    {
+                        "id": "weth-target-2",
+                        "name": "$4098.78",
+                        "odds": 3.020911386808651,
+                        "impliedProbability": 37.91072343531009
+                    },
+                    {
+                        "id": "weth-target-3",
+                        "name": "$3883.06",
+                        "odds": 3.3917078793520297,
+                        "impliedProbability": 30.42392900373812
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 384136695,
+        "participantCount": 1689
+    },
+    {
+        "id": "crypto-hedera-hashgraph",
+        "title": "Hedera (HBAR) Price Prediction",
+        "description": "Current: $0.23 (3.46% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$0.23",
+        "markets": [
+            {
+                "id": "hedera-hashgraph-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "hedera-hashgraph-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "hedera-hashgraph-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "hedera-hashgraph-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "hedera-hashgraph-target-0",
+                        "name": "$0.24",
+                        "odds": 3.848086192008046,
+                        "impliedProbability": 25.087795988760956
+                    },
+                    {
+                        "id": "hedera-hashgraph-target-1",
+                        "name": "$0.25",
+                        "odds": 3.3061174851574977,
+                        "impliedProbability": 31.298856831746058
+                    },
+                    {
+                        "id": "hedera-hashgraph-target-2",
+                        "name": "$0.22",
+                        "odds": 2.9617341083536486,
+                        "impliedProbability": 33.90164872243898
+                    },
+                    {
+                        "id": "hedera-hashgraph-target-3",
+                        "name": "$0.20",
+                        "odds": 3.9085438481798116,
+                        "impliedProbability": 38.51899105892263
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 195206102,
+        "participantCount": 1308
+    },
+    {
+        "id": "crypto-leo-token",
+        "title": "LEO Token (LEO) Price Prediction",
+        "description": "Current: $9.54 (-0.14% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$9.54",
+        "markets": [
+            {
+                "id": "leo-token-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "leo-token-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "leo-token-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "leo-token-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "leo-token-target-0",
+                        "name": "$10.02",
+                        "odds": 2.505256038065843,
+                        "impliedProbability": 26.459476801464376
+                    },
+                    {
+                        "id": "leo-token-target-1",
+                        "name": "$10.49",
+                        "odds": 4.455131264421739,
+                        "impliedProbability": 27.700386881463086
+                    },
+                    {
+                        "id": "leo-token-target-2",
+                        "name": "$9.06",
+                        "odds": 4.397233283669126,
+                        "impliedProbability": 30.617991410099833
+                    },
+                    {
+                        "id": "leo-token-target-3",
+                        "name": "$8.59",
+                        "odds": 2.60502544071921,
+                        "impliedProbability": 39.388820503414294
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 614691,
+        "participantCount": 1649
+    },
+    {
+        "id": "crypto-litecoin",
+        "title": "Litecoin (LTC) Price Prediction",
+        "description": "Current: $112.45 (-2.11% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$112.45",
+        "markets": [
+            {
+                "id": "litecoin-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "litecoin-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "litecoin-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "litecoin-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "litecoin-target-0",
+                        "name": "$118.07",
+                        "odds": 4.037755855203286,
+                        "impliedProbability": 26.09398264391976
+                    },
+                    {
+                        "id": "litecoin-target-1",
+                        "name": "$123.70",
+                        "odds": 3.2676586399185457,
+                        "impliedProbability": 39.9527851853921
+                    },
+                    {
+                        "id": "litecoin-target-2",
+                        "name": "$106.83",
+                        "odds": 2.6067842401980927,
+                        "impliedProbability": 31.722925604433005
+                    },
+                    {
+                        "id": "litecoin-target-3",
+                        "name": "$101.20",
+                        "odds": 2.8964844474969196,
+                        "impliedProbability": 26.234319210673824
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 633589415,
+        "participantCount": 1186
+    },
+    {
+        "id": "crypto-crypto-com-chain",
+        "title": "Cronos (CRO) Price Prediction",
+        "description": "Current: $0.25 (-3.53% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$0.25",
+        "markets": [
+            {
+                "id": "crypto-com-chain-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "crypto-com-chain-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "crypto-com-chain-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "crypto-com-chain-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "crypto-com-chain-target-0",
+                        "name": "$0.27",
+                        "odds": 4.357735759208774,
+                        "impliedProbability": 36.610957982301386
+                    },
+                    {
+                        "id": "crypto-com-chain-target-1",
+                        "name": "$0.28",
+                        "odds": 2.9716274959395474,
+                        "impliedProbability": 36.664492916764765
+                    },
+                    {
+                        "id": "crypto-com-chain-target-2",
+                        "name": "$0.24",
+                        "odds": 3.9902182276845974,
+                        "impliedProbability": 36.24998529200683
+                    },
+                    {
+                        "id": "crypto-com-chain-target-3",
+                        "name": "$0.23",
+                        "odds": 3.0432716056583757,
+                        "impliedProbability": 33.141594123007906
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 90679984,
+        "participantCount": 1355
+    },
+    {
+        "id": "crypto-usds",
+        "title": "USDS (USDS) Price Prediction",
+        "description": "Current: $1.00 (-0.02% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$1.00",
+        "markets": [
+            {
+                "id": "usds-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "usds-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "usds-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "usds-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "usds-target-0",
+                        "name": "$1.05",
+                        "odds": 3.7034486561539657,
+                        "impliedProbability": 27.899384298468455
+                    },
+                    {
+                        "id": "usds-target-1",
+                        "name": "$1.10",
+                        "odds": 3.2995509627761996,
+                        "impliedProbability": 26.90208935657941
+                    },
+                    {
+                        "id": "usds-target-2",
+                        "name": "$0.95",
+                        "odds": 3.9296257354878827,
+                        "impliedProbability": 29.688506321241793
+                    },
+                    {
+                        "id": "usds-target-3",
+                        "name": "$0.90",
+                        "odds": 3.5453034371218983,
+                        "impliedProbability": 36.402691169593766
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 6513868,
+        "participantCount": 916
+    },
+    {
+        "id": "crypto-the-open-network",
+        "title": "Toncoin (TON) Price Prediction",
+        "description": "Current: $3.10 (0.05% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$3.10",
+        "markets": [
+            {
+                "id": "the-open-network-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "the-open-network-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "the-open-network-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "the-open-network-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "the-open-network-target-0",
+                        "name": "$3.26",
+                        "odds": 3.4983947043430614,
+                        "impliedProbability": 37.02890797442443
+                    },
+                    {
+                        "id": "the-open-network-target-1",
+                        "name": "$3.41",
+                        "odds": 3.8369755983662994,
+                        "impliedProbability": 26.424076842216806
+                    },
+                    {
+                        "id": "the-open-network-target-2",
+                        "name": "$2.94",
+                        "odds": 3.1692793134327344,
+                        "impliedProbability": 25.291392121821296
+                    },
+                    {
+                        "id": "the-open-network-target-3",
+                        "name": "$2.79",
+                        "odds": 3.4192271577011546,
+                        "impliedProbability": 27.500295089446585
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 132872060,
+        "participantCount": 1497
+    },
+    {
+        "id": "crypto-shiba-inu",
+        "title": "Shiba Inu (SHIB) Price Prediction",
+        "description": "Current: $0.00 (3.67% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$0.00",
+        "markets": [
+            {
+                "id": "shiba-inu-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "shiba-inu-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "shiba-inu-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "shiba-inu-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "shiba-inu-target-0",
+                        "name": "$0.00",
+                        "odds": 4.378921386049538,
+                        "impliedProbability": 25.891493589105618
+                    },
+                    {
+                        "id": "shiba-inu-target-1",
+                        "name": "$0.00",
+                        "odds": 2.860645727834199,
+                        "impliedProbability": 27.122988140733028
+                    },
+                    {
+                        "id": "shiba-inu-target-2",
+                        "name": "$0.00",
+                        "odds": 2.763638825786,
+                        "impliedProbability": 32.86750767526942
+                    },
+                    {
+                        "id": "shiba-inu-target-3",
+                        "name": "$0.00",
+                        "odds": 3.0120880365977127,
+                        "impliedProbability": 30.05310041332963
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 251765066,
+        "participantCount": 1121
+    },
+    {
+        "id": "crypto-binance-bridged-usdt-bnb-smart-chain",
+        "title": "Binance Bridged USDT (BNB Smart Chain) (BSC-USD) Price Prediction",
+        "description": "Current: $1.00 (-0.02% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$1.00",
+        "markets": [
+            {
+                "id": "binance-bridged-usdt-bnb-smart-chain-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "binance-bridged-usdt-bnb-smart-chain-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "binance-bridged-usdt-bnb-smart-chain-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "binance-bridged-usdt-bnb-smart-chain-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "binance-bridged-usdt-bnb-smart-chain-target-0",
+                        "name": "$1.05",
+                        "odds": 3.0889249822850333,
+                        "impliedProbability": 35.121062822889584
+                    },
+                    {
+                        "id": "binance-bridged-usdt-bnb-smart-chain-target-1",
+                        "name": "$1.10",
+                        "odds": 3.215826448497826,
+                        "impliedProbability": 29.186666647947558
+                    },
+                    {
+                        "id": "binance-bridged-usdt-bnb-smart-chain-target-2",
+                        "name": "$0.95",
+                        "odds": 4.355452047357595,
+                        "impliedProbability": 25.760498617047347
+                    },
+                    {
+                        "id": "binance-bridged-usdt-bnb-smart-chain-target-3",
+                        "name": "$0.90",
+                        "odds": 2.883686736782889,
+                        "impliedProbability": 32.652853276752374
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 1883940013,
+        "participantCount": 1860
+    },
+    {
+        "id": "crypto-coinbase-wrapped-btc",
+        "title": "Coinbase Wrapped BTC (CBBTC) Price Prediction",
+        "description": "Current: $112457.00 (1.13% 24h)",
+        "startTime": "2025-09-08T22:51:57.239Z",
+        "endTime": "2025-09-09T22:51:57.239Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$112457.00",
+        "markets": [
+            {
+                "id": "coinbase-wrapped-btc-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "coinbase-wrapped-btc-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "coinbase-wrapped-btc-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "coinbase-wrapped-btc-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "coinbase-wrapped-btc-target-0",
+                        "name": "$118079.85",
+                        "odds": 3.602272714506984,
+                        "impliedProbability": 27.424576475747187
+                    },
+                    {
+                        "id": "coinbase-wrapped-btc-target-1",
+                        "name": "$123702.70",
+                        "odds": 4.064613204635119,
+                        "impliedProbability": 26.064180641326416
+                    },
+                    {
+                        "id": "coinbase-wrapped-btc-target-2",
+                        "name": "$106834.15",
+                        "odds": 3.9895735725529384,
+                        "impliedProbability": 31.40200690662106
+                    },
+                    {
+                        "id": "coinbase-wrapped-btc-target-3",
+                        "name": "$101211.30",
+                        "odds": 3.740105224144802,
+                        "impliedProbability": 38.33596837039638
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 322012766,
+        "participantCount": 1544
+    },
+    {
+        "id": "crypto-polkadot",
+        "title": "Polkadot (DOT) Price Prediction",
+        "description": "Current: $4.05 (1.25% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$4.05",
+        "markets": [
+            {
+                "id": "polkadot-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "polkadot-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "polkadot-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "polkadot-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "polkadot-target-0",
+                        "name": "$4.25",
+                        "odds": 2.7744604169142617,
+                        "impliedProbability": 26.07753386723727
+                    },
+                    {
+                        "id": "polkadot-target-1",
+                        "name": "$4.46",
+                        "odds": 4.455144356006355,
+                        "impliedProbability": 37.10821953496813
+                    },
+                    {
+                        "id": "polkadot-target-2",
+                        "name": "$3.85",
+                        "odds": 3.473397799301481,
+                        "impliedProbability": 39.386144781480255
+                    },
+                    {
+                        "id": "polkadot-target-3",
+                        "name": "$3.65",
+                        "odds": 2.8020719734059574,
+                        "impliedProbability": 38.42516996572124
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 333482118,
+        "participantCount": 647
+    },
+    {
+        "id": "crypto-whitebit",
+        "title": "WhiteBIT Coin (WBT) Price Prediction",
+        "description": "Current: $42.64 (0.89% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$42.64",
+        "markets": [
+            {
+                "id": "whitebit-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "whitebit-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "whitebit-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "whitebit-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "whitebit-target-0",
+                        "name": "$44.77",
+                        "odds": 3.6857901322980684,
+                        "impliedProbability": 36.13567185081821
+                    },
+                    {
+                        "id": "whitebit-target-1",
+                        "name": "$46.90",
+                        "odds": 4.4780640201447826,
+                        "impliedProbability": 35.664207264138994
+                    },
+                    {
+                        "id": "whitebit-target-2",
+                        "name": "$40.51",
+                        "odds": 3.4936812408314726,
+                        "impliedProbability": 39.441729033956335
+                    },
+                    {
+                        "id": "whitebit-target-3",
+                        "name": "$38.38",
+                        "odds": 3.242598971603643,
+                        "impliedProbability": 31.066689744949393
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 27980048,
+        "participantCount": 2049
+    },
+    {
+        "id": "crypto-world-liberty-financial",
+        "title": "World Liberty Financial (WLFI) Price Prediction",
+        "description": "Current: $0.21 (-7.97% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$0.21",
+        "markets": [
+            {
+                "id": "world-liberty-financial-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "world-liberty-financial-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "world-liberty-financial-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "world-liberty-financial-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "world-liberty-financial-target-0",
+                        "name": "$0.22",
+                        "odds": 2.636768723515227,
+                        "impliedProbability": 35.83665062111449
+                    },
+                    {
+                        "id": "world-liberty-financial-target-1",
+                        "name": "$0.23",
+                        "odds": 4.0400165137133675,
+                        "impliedProbability": 28.041140982263858
+                    },
+                    {
+                        "id": "world-liberty-financial-target-2",
+                        "name": "$0.20",
+                        "odds": 2.778568704910535,
+                        "impliedProbability": 36.911799053350265
+                    },
+                    {
+                        "id": "world-liberty-financial-target-3",
+                        "name": "$0.19",
+                        "odds": 2.953037218300693,
+                        "impliedProbability": 27.415781362559844
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 930434246,
+        "participantCount": 1008
+    },
+    {
+        "id": "crypto-uniswap",
+        "title": "Uniswap (UNI) Price Prediction",
+        "description": "Current: $9.56 (2.05% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$9.56",
+        "markets": [
+            {
+                "id": "uniswap-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "uniswap-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "uniswap-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "uniswap-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "uniswap-target-0",
+                        "name": "$10.04",
+                        "odds": 3.2433409852944557,
+                        "impliedProbability": 32.13981912608835
+                    },
+                    {
+                        "id": "uniswap-target-1",
+                        "name": "$10.52",
+                        "odds": 3.2089360917522813,
+                        "impliedProbability": 27.026702179217054
+                    },
+                    {
+                        "id": "uniswap-target-2",
+                        "name": "$9.08",
+                        "odds": 3.0632696600573937,
+                        "impliedProbability": 26.299454248291717
+                    },
+                    {
+                        "id": "uniswap-target-3",
+                        "name": "$8.60",
+                        "odds": 3.5331031922570473,
+                        "impliedProbability": 30.145313332949605
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 286145398,
+        "participantCount": 521
+    },
+    {
+        "id": "crypto-ethena-staked-usde",
+        "title": "Ethena Staked USDe (SUSDE) Price Prediction",
+        "description": "Current: $1.20 (-0.02% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$1.20",
+        "markets": [
+            {
+                "id": "ethena-staked-usde-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "ethena-staked-usde-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "ethena-staked-usde-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "ethena-staked-usde-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "ethena-staked-usde-target-0",
+                        "name": "$1.26",
+                        "odds": 3.1670828270773557,
+                        "impliedProbability": 30.626679260772637
+                    },
+                    {
+                        "id": "ethena-staked-usde-target-1",
+                        "name": "$1.32",
+                        "odds": 4.252595861619674,
+                        "impliedProbability": 34.72542908271185
+                    },
+                    {
+                        "id": "ethena-staked-usde-target-2",
+                        "name": "$1.14",
+                        "odds": 3.928677785620621,
+                        "impliedProbability": 33.119816927142686
+                    },
+                    {
+                        "id": "ethena-staked-usde-target-3",
+                        "name": "$1.08",
+                        "odds": 3.6784270171699687,
+                        "impliedProbability": 30.301964177582022
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 16693937,
+        "participantCount": 1557
+    },
+    {
+        "id": "crypto-ethena",
+        "title": "Ethena (ENA) Price Prediction",
+        "description": "Current: $0.78 (5.14% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$0.78",
+        "markets": [
+            {
+                "id": "ethena-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "ethena-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "ethena-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "ethena-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "ethena-target-0",
+                        "name": "$0.82",
+                        "odds": 4.411518100117313,
+                        "impliedProbability": 34.957765235240814
+                    },
+                    {
+                        "id": "ethena-target-1",
+                        "name": "$0.86",
+                        "odds": 3.7285737396424974,
+                        "impliedProbability": 26.09483507074525
+                    },
+                    {
+                        "id": "ethena-target-2",
+                        "name": "$0.74",
+                        "odds": 3.91763573382875,
+                        "impliedProbability": 26.422351745035172
+                    },
+                    {
+                        "id": "ethena-target-3",
+                        "name": "$0.70",
+                        "odds": 2.7815433826563734,
+                        "impliedProbability": 35.78863951682002
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 921503251,
+        "participantCount": 2131
+    },
+    {
+        "id": "crypto-monero",
+        "title": "Monero (XMR) Price Prediction",
+        "description": "Current: $267.88 (-1.14% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$267.88",
+        "markets": [
+            {
+                "id": "monero-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "monero-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "monero-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "monero-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "monero-target-0",
+                        "name": "$281.27",
+                        "odds": 3.9619099982255577,
+                        "impliedProbability": 39.621806221675484
+                    },
+                    {
+                        "id": "monero-target-1",
+                        "name": "$294.67",
+                        "odds": 4.462569886473439,
+                        "impliedProbability": 27.358196674661794
+                    },
+                    {
+                        "id": "monero-target-2",
+                        "name": "$254.49",
+                        "odds": 3.7492562056783383,
+                        "impliedProbability": 30.247343059157092
+                    },
+                    {
+                        "id": "monero-target-3",
+                        "name": "$241.09",
+                        "odds": 3.724362696396679,
+                        "impliedProbability": 38.305459289204606
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 71894759,
+        "participantCount": 789
+    },
+    {
+        "id": "crypto-aave",
+        "title": "Aave (AAVE) Price Prediction",
+        "description": "Current: $304.23 (0.74% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$304.23",
+        "markets": [
+            {
+                "id": "aave-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "aave-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "aave-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "aave-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "aave-target-0",
+                        "name": "$319.44",
+                        "odds": 3.3965398918200513,
+                        "impliedProbability": 28.19504390813155
+                    },
+                    {
+                        "id": "aave-target-1",
+                        "name": "$334.65",
+                        "odds": 3.7976610384627953,
+                        "impliedProbability": 31.971744120023804
+                    },
+                    {
+                        "id": "aave-target-2",
+                        "name": "$289.02",
+                        "odds": 2.7919249438869196,
+                        "impliedProbability": 27.699161453816252
+                    },
+                    {
+                        "id": "aave-target-3",
+                        "name": "$273.81",
+                        "odds": 3.982612064614469,
+                        "impliedProbability": 27.57901683333179
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 398028821,
+        "participantCount": 1540
+    },
+    {
+        "id": "crypto-dai",
+        "title": "Dai (DAI) Price Prediction",
+        "description": "Current: $1.00 (0.01% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$1.00",
+        "markets": [
+            {
+                "id": "dai-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "dai-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "dai-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "dai-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "dai-target-0",
+                        "name": "$1.05",
+                        "odds": 2.5336383617016613,
+                        "impliedProbability": 32.9281791898992
+                    },
+                    {
+                        "id": "dai-target-1",
+                        "name": "$1.10",
+                        "odds": 3.364459259108645,
+                        "impliedProbability": 33.15617630389265
+                    },
+                    {
+                        "id": "dai-target-2",
+                        "name": "$0.95",
+                        "odds": 3.6474453129757065,
+                        "impliedProbability": 37.90997047249449
+                    },
+                    {
+                        "id": "dai-target-3",
+                        "name": "$0.90",
+                        "odds": 4.087224131107961,
+                        "impliedProbability": 32.690031967965055
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 98872970,
+        "participantCount": 1761
+    },
+    {
+        "id": "crypto-bitget-token",
+        "title": "Bitget Token (BGB) Price Prediction",
+        "description": "Current: $4.85 (0.34% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$4.85",
+        "markets": [
+            {
+                "id": "bitget-token-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "bitget-token-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "bitget-token-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "bitget-token-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "bitget-token-target-0",
+                        "name": "$5.09",
+                        "odds": 4.448440013210715,
+                        "impliedProbability": 31.37720463564709
+                    },
+                    {
+                        "id": "bitget-token-target-1",
+                        "name": "$5.33",
+                        "odds": 2.9930960337427774,
+                        "impliedProbability": 33.35927581448391
+                    },
+                    {
+                        "id": "bitget-token-target-2",
+                        "name": "$4.61",
+                        "odds": 2.5742730425786444,
+                        "impliedProbability": 34.37231796473406
+                    },
+                    {
+                        "id": "bitget-token-target-3",
+                        "name": "$4.37",
+                        "odds": 3.805520580552301,
+                        "impliedProbability": 39.29980540338423
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 182151262,
+        "participantCount": 1705
+    },
+    {
+        "id": "crypto-pepe",
+        "title": "Pepe (PEPE) Price Prediction",
+        "description": "Current: $0.00 (4.48% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$0.00",
+        "markets": [
+            {
+                "id": "pepe-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "pepe-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "pepe-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "pepe-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "pepe-target-0",
+                        "name": "$0.00",
+                        "odds": 3.89946497189072,
+                        "impliedProbability": 33.1170635927032
+                    },
+                    {
+                        "id": "pepe-target-1",
+                        "name": "$0.00",
+                        "odds": 3.518292125260579,
+                        "impliedProbability": 28.34527646501904
+                    },
+                    {
+                        "id": "pepe-target-2",
+                        "name": "$0.00",
+                        "odds": 3.561350163635648,
+                        "impliedProbability": 35.53860137067438
+                    },
+                    {
+                        "id": "pepe-target-3",
+                        "name": "$0.00",
+                        "odds": 3.6608513897202366,
+                        "impliedProbability": 25.923565313370943
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 533260230,
+        "participantCount": 1700
+    },
+    {
+        "id": "crypto-okb",
+        "title": "OKB (OKB) Price Prediction",
+        "description": "Current: $191.28 (-1.53% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$191.28",
+        "markets": [
+            {
+                "id": "okb-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "okb-up",
+                        "name": "Price Up",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    },
+                    {
+                        "id": "okb-down",
+                        "name": "Price Down",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "okb-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "okb-target-0",
+                        "name": "$200.84",
+                        "odds": 3.724905091406379,
+                        "impliedProbability": 30.238817374153832
+                    },
+                    {
+                        "id": "okb-target-1",
+                        "name": "$210.41",
+                        "odds": 3.5285120662561678,
+                        "impliedProbability": 39.10260647336048
+                    },
+                    {
+                        "id": "okb-target-2",
+                        "name": "$181.72",
+                        "odds": 4.186437760321413,
+                        "impliedProbability": 33.894978804078654
+                    },
+                    {
+                        "id": "okb-target-3",
+                        "name": "$172.15",
+                        "odds": 3.1334763480461216,
+                        "impliedProbability": 36.85207514051551
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 232343165,
+        "participantCount": 489
+    },
+    {
+        "id": "crypto-mantle",
+        "title": "Mantle (MNT) Price Prediction",
+        "description": "Current: $1.22 (5.07% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$1.22",
+        "markets": [
+            {
+                "id": "mantle-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "mantle-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "mantle-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "mantle-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "mantle-target-0",
+                        "name": "$1.28",
+                        "odds": 2.595314237657913,
+                        "impliedProbability": 35.09749863388874
+                    },
+                    {
+                        "id": "mantle-target-1",
+                        "name": "$1.34",
+                        "odds": 4.06558451802502,
+                        "impliedProbability": 27.138303967509653
+                    },
+                    {
+                        "id": "mantle-target-2",
+                        "name": "$1.16",
+                        "odds": 3.910861813041704,
+                        "impliedProbability": 32.63863457393721
+                    },
+                    {
+                        "id": "mantle-target-3",
+                        "name": "$1.10",
+                        "odds": 4.497632452726439,
+                        "impliedProbability": 33.23967446646676
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 209357050,
+        "participantCount": 1652
+    },
+    {
+        "id": "crypto-memecore",
+        "title": "MemeCore (M) Price Prediction",
+        "description": "Current: $2.10 (12.61% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$2.10",
+        "markets": [
+            {
+                "id": "memecore-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "memecore-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "memecore-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "memecore-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "memecore-target-0",
+                        "name": "$2.21",
+                        "odds": 3.0358334649350818,
+                        "impliedProbability": 37.67459656941479
+                    },
+                    {
+                        "id": "memecore-target-1",
+                        "name": "$2.31",
+                        "odds": 2.966455377123931,
+                        "impliedProbability": 32.081292163881066
+                    },
+                    {
+                        "id": "memecore-target-2",
+                        "name": "$1.99",
+                        "odds": 3.6866228175824243,
+                        "impliedProbability": 31.995098462964798
+                    },
+                    {
+                        "id": "memecore-target-3",
+                        "name": "$1.89",
+                        "odds": 4.466753985033008,
+                        "impliedProbability": 26.840532857760852
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 56688300,
+        "participantCount": 512
+    },
+    {
+        "id": "crypto-bittensor",
+        "title": "Bittensor (TAO) Price Prediction",
+        "description": "Current: $342.96 (5.51% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$342.96",
+        "markets": [
+            {
+                "id": "bittensor-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "bittensor-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "bittensor-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "bittensor-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "bittensor-target-0",
+                        "name": "$360.11",
+                        "odds": 3.199155671586423,
+                        "impliedProbability": 25.17083248756347
+                    },
+                    {
+                        "id": "bittensor-target-1",
+                        "name": "$377.26",
+                        "odds": 4.088530675287456,
+                        "impliedProbability": 28.95935095501964
+                    },
+                    {
+                        "id": "bittensor-target-2",
+                        "name": "$325.81",
+                        "odds": 3.8434102863058115,
+                        "impliedProbability": 37.09768381483418
+                    },
+                    {
+                        "id": "bittensor-target-3",
+                        "name": "$308.66",
+                        "odds": 4.393963955277568,
+                        "impliedProbability": 27.65843045851143
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 96168890,
+        "participantCount": 2173
+    },
+    {
+        "id": "crypto-near",
+        "title": "NEAR Protocol (NEAR) Price Prediction",
+        "description": "Current: $2.59 (5.15% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$2.59",
+        "markets": [
+            {
+                "id": "near-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "near-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "near-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "near-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "near-target-0",
+                        "name": "$2.72",
+                        "odds": 4.15766931125834,
+                        "impliedProbability": 29.241163215320714
+                    },
+                    {
+                        "id": "near-target-1",
+                        "name": "$2.85",
+                        "odds": 4.451291894121115,
+                        "impliedProbability": 39.61774102080346
+                    },
+                    {
+                        "id": "near-target-2",
+                        "name": "$2.46",
+                        "odds": 2.8428202079213127,
+                        "impliedProbability": 34.69936752040241
+                    },
+                    {
+                        "id": "near-target-3",
+                        "name": "$2.33",
+                        "odds": 3.5233540652175996,
+                        "impliedProbability": 25.514242386199783
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 134446333,
+        "participantCount": 1136
+    },
+    {
+        "id": "crypto-ethereum-classic",
+        "title": "Ethereum Classic (ETC) Price Prediction",
+        "description": "Current: $20.85 (2.10% 24h)",
+        "startTime": "2025-09-08T22:51:57.240Z",
+        "endTime": "2025-09-09T22:51:57.240Z",
+        "category": "crypto",
+        "status": "live",
+        "currentScore": "$20.85",
+        "markets": [
+            {
+                "id": "ethereum-classic-price-24h",
+                "name": "24h Price Direction",
+                "outcomes": [
+                    {
+                        "id": "ethereum-classic-up",
+                        "name": "Price Up",
+                        "odds": 1.8,
+                        "impliedProbability": 55.6
+                    },
+                    {
+                        "id": "ethereum-classic-down",
+                        "name": "Price Down",
+                        "odds": 2.2,
+                        "impliedProbability": 45.5
+                    }
+                ],
+                "isResolved": false
+            },
+            {
+                "id": "ethereum-classic-price-target",
+                "name": "Price Target (24h)",
+                "outcomes": [
+                    {
+                        "id": "ethereum-classic-target-0",
+                        "name": "$21.89",
+                        "odds": 3.7995507358219185,
+                        "impliedProbability": 38.07862113128614
+                    },
+                    {
+                        "id": "ethereum-classic-target-1",
+                        "name": "$22.94",
+                        "odds": 3.9604918394021906,
+                        "impliedProbability": 28.84145464023111
+                    },
+                    {
+                        "id": "ethereum-classic-target-2",
+                        "name": "$19.81",
+                        "odds": 2.7919485253518683,
+                        "impliedProbability": 32.03085495521375
+                    },
+                    {
+                        "id": "ethereum-classic-target-3",
+                        "name": "$18.77",
+                        "odds": 3.742383910017698,
+                        "impliedProbability": 28.892034887671517
+                    }
+                ],
+                "isResolved": false
+            }
+        ],
+        "totalVolume": 93845966,
+        "participantCount": 1367
+    }
+]

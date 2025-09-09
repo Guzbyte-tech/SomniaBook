@@ -16,6 +16,7 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { Loader2, TrendingUp, Wallet, CheckCircle, Plus } from "lucide-react"
 import { useAppStore } from "@/lib/store"
+import { useWallet } from "@/hooks/useAppKit"
 
 interface BetModalProps {
   isOpen: boolean
@@ -26,22 +27,33 @@ interface BetModalProps {
   } | null
   eventTitle: string
   marketName: string
+  eventId: string
+  marketId: string
 }
 
-export function BetModal({ isOpen, onClose, outcome, eventTitle, marketName }: BetModalProps) {
+export function BetModal({ isOpen, onClose, outcome, eventTitle, marketName, eventId, marketId }: BetModalProps) {
   const [betAmount, setBetAmount] = useState("")
   const [isConfirming, setIsConfirming] = useState(false)
   const [isConfirmed, setIsConfirmed] = useState(false)
   const [showAllOutcomes, setShowAllOutcomes] = useState(false)
-  const { user, addBet } = useAppStore()
+  const { addBet } = useAppStore()
+  const { 
+      open, 
+      close,
+      address, 
+      isConnected, 
+      chainId,
+      balance,
+      isLoading
+    } = useWallet()
 
-  const additionalOutcomes = [
-    { name: "Alternative Outcome 1", odds: 3.5 },
-    { name: "Alternative Outcome 2", odds: 2.8 },
-    { name: "Alternative Outcome 3", odds: 4.2 },
-    { name: "Alternative Outcome 4", odds: 1.9 },
-    { name: "Alternative Outcome 5", odds: 5.1 },
-  ]
+  // const additionalOutcomes = [
+  //   { name: "Alternative Outcome 1", odds: 3.5 },
+  //   { name: "Alternative Outcome 2", odds: 2.8 },
+  //   { name: "Alternative Outcome 3", odds: 4.2 },
+  //   { name: "Alternative Outcome 4", odds: 1.9 },
+  //   { name: "Alternative Outcome 5", odds: 5.1 },
+  // ]
 
   const betAmountNum = Number.parseFloat(betAmount) || 0
   const estimatedPayout = outcome ? betAmountNum * outcome.odds : 0
@@ -57,7 +69,10 @@ export function BetModal({ isOpen, onClose, outcome, eventTitle, marketName }: B
   }, [isOpen])
 
   const handleConfirmBet = async () => {
-    if (!outcome || !user.isConnected || betAmountNum <= 0) return
+    if (!outcome || !isConnected || betAmountNum <= 0) return
+
+    console.log("outcome", outcome);
+   
 
     setIsConfirming(true)
 
@@ -85,7 +100,7 @@ export function BetModal({ isOpen, onClose, outcome, eventTitle, marketName }: B
     }, 2000)
   }
 
-  const quickAmounts = [0.1, 0.5, 1.0, 2.0]
+  const quickAmounts = [0.001, 0.005, 0.05, 0.5]
 
   if (!outcome) return null
 
@@ -120,7 +135,7 @@ export function BetModal({ isOpen, onClose, outcome, eventTitle, marketName }: B
                 </div>
               </div>
 
-              {!showAllOutcomes ? (
+              {/* {!showAllOutcomes ? (
                 <Button variant="outline" onClick={() => setShowAllOutcomes(true)} className="w-full">
                   <Plus className="w-4 h-4 mr-2" />
                   Show More Betting Options ({additionalOutcomes.length} more)
@@ -150,11 +165,11 @@ export function BetModal({ isOpen, onClose, outcome, eventTitle, marketName }: B
                     ))}
                   </div>
                 </div>
-              )}
+              )} */}
 
               {/* Bet Amount Input */}
               <div className="space-y-3">
-                <Label htmlFor="bet-amount">Bet Amount (ETH)</Label>
+                <Label htmlFor="bet-amount">Bet Amount (STT)</Label>
                 <Input
                   id="bet-amount"
                   type="number"
@@ -176,7 +191,7 @@ export function BetModal({ isOpen, onClose, outcome, eventTitle, marketName }: B
                       onClick={() => setBetAmount(amount.toString())}
                       className="flex-1"
                     >
-                      {amount} ETH
+                      {amount} STT
                     </Button>
                   ))}
                 </div>
@@ -187,7 +202,7 @@ export function BetModal({ isOpen, onClose, outcome, eventTitle, marketName }: B
                 <div className="bg-primary/10 rounded-lg p-4 space-y-2">
                   <div className="flex justify-between text-sm">
                     <span>Bet Amount:</span>
-                    <span>{betAmountNum.toFixed(3)} ETH</span>
+                    <span>{betAmountNum.toFixed(3)} STT</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span>Odds:</span>
@@ -196,17 +211,17 @@ export function BetModal({ isOpen, onClose, outcome, eventTitle, marketName }: B
                   <Separator />
                   <div className="flex justify-between font-medium">
                     <span>Potential Payout:</span>
-                    <span className="text-primary">{estimatedPayout.toFixed(3)} ETH</span>
+                    <span className="text-primary">{estimatedPayout.toFixed(3)} STT</span>
                   </div>
                   <div className="flex justify-between text-sm text-green-400">
                     <span>Profit:</span>
-                    <span>+{profit.toFixed(3)} ETH</span>
+                    <span>+{profit.toFixed(3)} STT</span>
                   </div>
                 </div>
               )}
 
               {/* Wallet Connection Check */}
-              {!user.isConnected && (
+              {!isConnected && (
                 <div className="bg-destructive/10 border border-destructive/20 rounded-lg p-4 text-center">
                   <Wallet className="w-8 h-8 mx-auto mb-2 text-destructive" />
                   <p className="text-sm text-destructive">Please connect your wallet to place bets</p>
@@ -220,7 +235,7 @@ export function BetModal({ isOpen, onClose, outcome, eventTitle, marketName }: B
               </Button>
               <Button
                 onClick={handleConfirmBet}
-                disabled={!user.isConnected || betAmountNum <= 0 || isConfirming}
+                disabled={!isConnected || betAmountNum <= 0 || isConfirming}
                 className="bg-primary hover:bg-primary/90"
               >
                 {isConfirming ? (
@@ -229,7 +244,7 @@ export function BetModal({ isOpen, onClose, outcome, eventTitle, marketName }: B
                     Confirming...
                   </>
                 ) : (
-                  `Confirm Bet (${betAmountNum.toFixed(3)} ETH)`
+                  `Confirm Bet (${betAmountNum.toFixed(3)} STT)`
                 )}
               </Button>
             </DialogFooter>
@@ -242,16 +257,16 @@ export function BetModal({ isOpen, onClose, outcome, eventTitle, marketName }: B
             </div>
             <DialogTitle className="text-xl mb-2">Bet Placed Successfully!</DialogTitle>
             <DialogDescription className="mb-4">
-              Your bet of {betAmountNum.toFixed(3)} ETH on "{outcome.name}" has been confirmed.
+              Your bet of {betAmountNum.toFixed(3)} STT on "{outcome.name}" has been confirmed.
             </DialogDescription>
             <div className="bg-muted rounded-lg p-4 text-sm">
               <div className="flex justify-between mb-1">
                 <span>Potential Payout:</span>
-                <span className="font-medium text-primary">{estimatedPayout.toFixed(3)} ETH</span>
+                <span className="font-medium text-primary">{estimatedPayout.toFixed(3)} STT</span>
               </div>
               <div className="flex justify-between">
                 <span>Potential Profit:</span>
-                <span className="font-medium text-green-400">+{profit.toFixed(3)} ETH</span>
+                <span className="font-medium text-green-400">+{profit.toFixed(3)} STT</span>
               </div>
             </div>
           </div>

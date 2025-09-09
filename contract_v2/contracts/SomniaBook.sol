@@ -49,8 +49,7 @@ contract SomniaBook is ReentrancyGuard, Ownable {
     }
 
     // Simplified bet placement (no market/selection strings)
-    function placeBet(uint256 _odds) 
-        external payable nonReentrant returns (bytes32 betId) {
+    function placeBet(uint256 _odds) external payable nonReentrant returns (bytes32 betId) {
         
         require(msg.value >= minBetAmount && msg.value <= maxBetAmount, "Invalid amount");
         require(_odds >= 1000, "Invalid odds");

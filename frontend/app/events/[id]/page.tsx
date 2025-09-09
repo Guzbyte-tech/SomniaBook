@@ -44,6 +44,7 @@ export default function EventDetailsPage() {
   const event = events.find((e) => e.id === eventId)
 
   useEffect(() => {
+    console.log('event: ', event)
     if (events.length === 0) {
       loadEvents()
     }
@@ -235,7 +236,7 @@ export default function EventDetailsPage() {
           {/* Sidebar with feeds */}
           <div className="lg:col-span-2 space-y-6">
             {/* Live Match Feed */}
-            <LiveMatchFeed />
+            {/* <LiveMatchFeed /> */}
 
             {/* Recent Bets Feed */}
             <Card>
@@ -297,6 +298,8 @@ export default function EventDetailsPage() {
         outcome={selectedOutcome}
         eventTitle={event.title}
         marketName={event.markets[activeMarket]?.name || ""}
+        eventId={event.id}
+        marketId={event.markets[activeMarket]?.id || ""}
       />
     </div>
   )

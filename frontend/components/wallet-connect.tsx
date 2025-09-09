@@ -2,34 +2,63 @@
 
 import { Button } from "@/components/ui/button"
 import { useAppStore } from "@/lib/store"
+import { useWallet } from '../hooks/useAppKit'
+import { useEffect } from 'react'
+import { useDisconnect } from "@reown/appkit/react"
 
 export function WalletConnect() {
   const { user, setUser } = useAppStore()
+  const { disconnect } = useDisconnect();
 
-  const connectWallet = async () => {
-    // Mock wallet connection for demo
-    // In production, this would use wagmi/viem
-    const mockAddress = "0x1234567890123456789012345678901234567890"
-    setUser({
-      address: mockAddress,
-      isConnected: true,
-    })
+  const { 
+    open, 
+    close,
+    address, 
+    isConnected, 
+    chainId,
+    balance,
+    isLoading
+  } = useWallet()
+
+
+  const handleConnect = () => {
+    open()
   }
 
-  const disconnectWallet = () => {
-    setUser({
-      address: null,
-      isConnected: false,
-    })
+  const handleDisconnect = async () => {
+      try {
+        await disconnect();
+      } catch (error) {
+        console.error("Failed to disconnect:", error);
+      }
+    }
+
+
+  useEffect(() =>{
+    console.log("Wallet state changed:", { isConnected, address, chainId })
+  }, [isConnected, address, chainId]);
+
+  
+
+  // Show loading state while connecting
+  if (isLoading) {
+    return (
+      <Button disabled className="bg-primary hover:bg-primary/90 text-primary-foreground">
+        Connecting...
+      </Button>
+    )
   }
 
-  if (user.isConnected) {
+  if (isConnected && address) {
     return (
       <div className="flex items-center gap-2">
         <div className="text-sm text-muted-foreground">
-          {user.address?.slice(0, 6)}...{user.address?.slice(-4)}
+          {address?.slice(0, 6)}...{address?.slice(-4)}
         </div>
-        <Button variant="outline" size="sm" onClick={disconnectWallet}>
+        <div className="text-xs text-muted-foreground">
+          {parseFloat(balance).toFixed(4)} STT
+        </div>
+        <Button variant="outline" size="sm" onClick={handleDisconnect}>
           Disconnect
         </Button>
       </div>
@@ -37,7 +66,7 @@ export function WalletConnect() {
   }
 
   return (
-    <Button onClick={connectWallet} className="bg-primary hover:bg-primary/90 text-primary-foreground">
+    <Button onClick={handleConnect} className="bg-primary hover:bg-primary/90 text-primary-foreground">
       Connect Wallet
     </Button>
   )

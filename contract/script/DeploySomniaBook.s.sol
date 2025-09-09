@@ -8,6 +8,7 @@ contract DeploySomniaBook is Script {
     function run() external {
         // Load deployer private key from env (cast wallet import or foundry.toml)
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        console.log("Deployer Address:", vm.addr(deployerPrivateKey));
 
         // Start broadcasting transactions from deployer
         vm.startBroadcast(deployerPrivateKey);

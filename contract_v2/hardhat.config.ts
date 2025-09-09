@@ -1,7 +1,10 @@
 import type { HardhatUserConfig } from "hardhat/config";
 import hardhatToolboxMochaEthersPlugin from "@nomicfoundation/hardhat-toolbox-mocha-ethers";
+import hardhatVerify from "@nomicfoundation/hardhat-verify";
+
 import { configVariable } from "hardhat/config";
 import * as dotenv from "dotenv";
+import { verify } from "crypto";
 
 dotenv.config();
 
@@ -11,9 +14,8 @@ const SOMNIA_TESTNET_RPC_URL = process.env.SOMNIA_TESTNET_RPC_URL! || "";
 const LOCAL_PRIVATE_KEY = process.env.LOCAL_PRIVATE_KEY! || "";
 
 
-
 const config: HardhatUserConfig = {
-  plugins: [hardhatToolboxMochaEthersPlugin],
+  plugins: [hardhatToolboxMochaEthersPlugin, hardhatVerify],
   solidity: {
     profiles: {
       default: {
@@ -54,7 +56,7 @@ const config: HardhatUserConfig = {
       type: "http",
       url: SOMNIA_TESTNET_RPC_URL,
       accounts: [PRIVATE_KEY]
-    }
+    },
   },
   
 };

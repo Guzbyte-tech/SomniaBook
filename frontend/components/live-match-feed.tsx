@@ -62,8 +62,8 @@ export function LiveMatchFeed() {
               <p className="text-sm">Waiting for live events...</p>
             </div>
           ) : (
-            liveEvents.map((event) => (
-              <div key={event.id} className="p-4 border-b border-border last:border-b-0 animate-in slide-in-from-top-2">
+            liveEvents.map((event, index) => (
+              <div key={index} className="p-4 border-b border-border last:border-b-0 animate-in slide-in-from-top-2">
                 <div className="flex items-start justify-between mb-2">
                   <Badge className={getEventTypeColor(event.type)}>{event.type}</Badge>
                   <span className="text-xs text-muted-foreground">{event.timestamp.toLocaleTimeString()}</span>
