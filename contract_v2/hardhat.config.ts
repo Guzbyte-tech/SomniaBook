@@ -4,7 +4,6 @@ import hardhatVerify from "@nomicfoundation/hardhat-verify";
 
 import { configVariable } from "hardhat/config";
 import * as dotenv from "dotenv";
-import { verify } from "crypto";
 
 dotenv.config();
 
@@ -20,6 +19,13 @@ const config: HardhatUserConfig = {
     profiles: {
       default: {
         version: "0.8.28",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+          viaIR: true,
+        },
       },
       production: {
         version: "0.8.28",
@@ -55,7 +61,16 @@ const config: HardhatUserConfig = {
     somnia_testnet: {
       type: "http",
       url: SOMNIA_TESTNET_RPC_URL,
-      accounts: [PRIVATE_KEY]
+      accounts: [PRIVATE_KEY],
+      chainId: 50312,
+    },
+  },
+  verify: {
+    etherscan: {
+      apiKey: "empty"
+    },
+    blockscout: {
+      enabled: true,
     },
   },
   

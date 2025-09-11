@@ -1,18 +1,16 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
+import { Analytics } from "@vercel/analytics/next"
+import { Suspense } from "react"
+import { WalletProvider } from "@/components/wallet-provider"
 import "./globals.css"
-import AppKitProvider from "@/components/AppkitProvider"
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-})
 
 export const metadata: Metadata = {
-  title: "SomniaBook - Real-Time Prediction Markets",
-  description: "Bet as it happens, get paid instantly. Real-time prediction markets for sports, crypto, and more.",
+  title: "ChronoVault - Time-Locked Multi-Sig Vaults",
+  description:
+    "Securely lock tokens until a future block or timestamp. Unlock only with majority approvals, fully on-chain.",
 }
 
 export default function RootLayout({
@@ -21,12 +19,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} dark`}>
-      <body className="font-sans antialiased">
-        <AppKitProvider>
-          {children}
-        </AppKitProvider>
-        
+    <html lang="en" className="dark">
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} gradient-bg min-h-screen`}>
+        <WalletProvider>
+          <Suspense fallback={null}>{children}</Suspense>
+        </WalletProvider>
+        <Analytics />
       </body>
     </html>
   )
