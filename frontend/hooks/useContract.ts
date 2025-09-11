@@ -1,6 +1,6 @@
 import { ABI } from "@/ABI/ChronosVault";
 import { useAppKitProvider, useAppKitAccount } from "@reown/appkit/react";
-import { BrowserProvider, Contract } from "ethers";
+import { BrowserProvider, Contract, TransactionResponse } from "ethers";
 
 export function useContract() {
   const { address, caipAddress, isConnected } = useAppKitAccount();
@@ -23,7 +23,7 @@ export function useContract() {
    * @param method - contract method name
    * @param args - arguments for the function
    */
-  const read = async <T = unknown>(
+  const readContract = async <T = unknown>(
     method: string,
     args: any[] = []
   ): Promise<T> => {
@@ -37,17 +37,17 @@ export function useContract() {
    * @param method - contract method name
    * @param args - arguments for the function
    */
-  const write = async (
+  const writeContract = async (
     method: string,
-    args: any[] = []
-  ): Promise<{ hash: string }> => {
+    args: any[] = [],
+    overrides: Record<string, any> = {}
+  ): Promise<TransactionResponse> => {
     const contract = await getContract();
     if (!contract[method]) throw new Error(`Method ${method} not found in ABI`);
 
-    const tx = await contract[method](...args);
-    await tx.wait();
-    return { hash: tx.hash };
+    const tx = await contract[method](...args, overrides) as TransactionResponse;
+    return tx;
   };
 
-  return { getContract, isConnected, address };
+  return { getContract, isConnected, address, readContract, writeContract };
 }
