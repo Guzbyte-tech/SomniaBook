@@ -1,8 +1,9 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { useWallet } from "@/components/wallet-provider"
 import { Wallet, LogOut } from "lucide-react"
+import { useWallet } from '../hooks/useAppKit'
+import { useDisconnect } from "@reown/appkit/react"
 
 interface ConnectWalletButtonProps {
   variant?: "default" | "outline" | "ghost"
@@ -15,7 +16,34 @@ export function ConnectWalletButton({
   size = "default",
   showAddress = false,
 }: ConnectWalletButtonProps) {
-  const { isConnected, address, connect, disconnect, isConnecting } = useWallet()
+  
+ const { 
+    open, 
+    close,
+    address, 
+    isConnected, 
+    chainId,
+    balance,
+    isLoading
+  } = useWallet()
+
+  const { disconnect } = useDisconnect()
+
+  const handleConnect = async () => {
+    try {
+      await open()
+    } catch (err) {
+      console.error("Error during wallet connection:", err)
+    }
+  }
+
+  const handleDisconnect = async () => {
+    try {
+      await disconnect()
+    } catch (err) {
+      console.error("Error during wallet disconnection:", err)
+    }
+  }
 
   const formatAddress = (addr: string) => {
     return `${addr.slice(0, 6)}...${addr.slice(-4)}`
@@ -28,7 +56,7 @@ export function ConnectWalletButton({
         <Button
           variant={variant}
           size={size}
-          onClick={disconnect}
+          onClick={handleDisconnect}
           className="flex items-center gap-2 bg-gradient-to-r from-primary via-accent to-secondary hover:from-primary/80 hover:via-accent/80 hover:to-secondary/80 text-white border-0 glow-button"
         >
           <LogOut className="w-4 h-4" />
@@ -42,12 +70,12 @@ export function ConnectWalletButton({
     <Button
       variant={variant}
       size={size}
-      onClick={connect}
-      disabled={isConnecting}
+      onClick={handleConnect}
+      disabled={isLoading}
       className="flex items-center gap-2 bg-gradient-to-r from-primary via-accent to-secondary hover:from-primary/80 hover:via-accent/80 hover:to-secondary/80 text-white border-0 glow-button"
     >
       <Wallet className="w-4 h-4" />
-      {isConnecting ? "Connecting..." : "Connect Wallet"}
+      {isLoading ? "Connecting..." : "Connect Wallet"}
     </Button>
   )
 }

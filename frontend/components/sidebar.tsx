@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ConnectWalletButton } from "@/components/connect-wallet-button"
-import { useWallet } from "@/components/wallet-provider"
+import { useWallet } from '../hooks/useAppKit'
 import { LayoutDashboard, Vault, Plus, Menu, X, Clock } from "lucide-react"
 
 const navigation = [
@@ -56,7 +56,7 @@ export function Sidebar() {
           <div className="p-6 border-b border-border/50">
             <Link href="/" className="flex items-center gap-2">
               <Clock className="w-8 h-8 text-accent" />
-              <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 ChronoVault
               </span>
             </Link>

@@ -11,11 +11,11 @@ import { Plus, X, Clock, Users, Shield } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const tokens = [
-  { symbol: "ETH", name: "Ethereum", decimals: 18 },
+  { symbol: "STT", name: "Somnia Token STT", decimals: 18 },
   { symbol: "USDC", name: "USD Coin", decimals: 6 },
   { symbol: "USDT", name: "Tether USD", decimals: 6 },
   { symbol: "DAI", name: "Dai Stablecoin", decimals: 18 },
-  { symbol: "WBTC", name: "Wrapped Bitcoin", decimals: 8 },
+  { symbol: "WETH", name: "Wrapped Bitcoin", decimals: 8 },
 ]
 
 export default function CreateVaultPage() {
