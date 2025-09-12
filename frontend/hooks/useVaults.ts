@@ -23,18 +23,25 @@ export function useVaults() {
   const fetchVault = async (vaultId: bigint) => {
     return await readContract("getVault", [vaultId]);
     // return await readContract<VaultStruct>("vaults", [vaultId]);
-    
   };
 
-  // const signersData = async (vaultId: bigint) => {
-  //   const data = await fetchVault(vaultId);
-  //   return {
-  //     totalSigners: data.signers.length,
-  //     requiredSignatures: Number(data.requiredSignatures),
-  //     signers: data.signers,
-  //     totalApproved: data.currentSignatures,
-  //   };
-  // };
+  const getVaultInfo = async (vaultId: bigint) => {
+    return await readContract("vaults", [vaultId]);
+  };
+
+  const signerInfo = async (vaultId: bigint) => {
+    const {id, name, creator, signers, requiredSignatures, tokenAddress, amount, unlockTimestamp, unlockBlockHeight, useBlockNumber, isUnlocked, isWithdrawn, hasSigned,currentSignatures, createdAt} = await getVaultInfo(vaultId);
+    return {
+      requiredSignatures: Number(requiredSignatures),
+      signers,
+      totalApproved: currentSignatures,
+      hasSigned
+    };
+  };
+
+  const hasSignedVault = async (vaulId: bigint, address: string) => {
+    return (await signerInfo(vaulId)).hasSigned.addresses.includes(address);
+  }
 
   // Combined: all vaults where user is creator or signer
   const fetchAllVaults = async () => {
@@ -68,7 +75,8 @@ export function useVaults() {
 
 
   return {
-    // signersData,
+    signerInfo,
+    hasSignedVault,
     fetchUserVaults,
     fetchSignerVaults,
     fetchVault,

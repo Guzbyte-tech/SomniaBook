@@ -35,6 +35,9 @@ import { Vault, VaultStruct } from "@/types/vault";
 import { ethers } from "ethers";
 import { useWallet } from "@/hooks/useAppKit";
 import ReleaseFundsModal from "@/components/release-vault-modal";
+import { useBackend } from "@/hooks/useBackend";
+
+import { v4 as uuidv4 } from "uuid";
 
 export default function VaultsPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -47,11 +50,12 @@ export default function VaultsPage() {
   const { address, isConnected } = useWallet();
   const [isReleaseModalOpen, setIsReleaseModalOpen] = useState(false);
   const [selectedVault, setSelectedVault] = useState<any>(null);
+  const { createTransactionLog, fetchLogByVaultId } = useBackend();
 
   const loadVaults = useCallback(async () => {
     try {
       // 1. Fetch raw vault arrays from contract
-      const vaultSigners = [];
+      
       const data = await fetchAllVaults();
       console.log("Raw vault data:", data);
 
@@ -142,6 +146,16 @@ export default function VaultsPage() {
       const tx = await signVault(BigInt(vaultId));
       await tx.wait();
       console.log("Vault approved:", vaultId);
+
+      const cuuid: string = uuidv4();
+      const approveTx = await createTransactionLog({
+        uuid: cuuid,
+        vaultId: vaultId.toString(),
+        txType: "approve",
+        signer: address,
+        txHash: tx.hash
+      });
+      console.log("Approve transaction log:", approveTx)
       loadVaults();
     } catch (err: any) {
       console.error("Error approving vault:", err);

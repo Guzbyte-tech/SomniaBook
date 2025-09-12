@@ -9,9 +9,15 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { AlertTriangle, ArrowRight, Shield, ExternalLink, CheckCircle } from "lucide-react"
+import { AlertTriangle, ArrowRight, Shield, ExternalLink, CheckCircle, Eye } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useVaults } from "@/hooks/useVaults"
+import { useBackend } from "@/hooks/useBackend";
+import Link from "next/link"
+
+
+import { v4 as uuidv4 } from "uuid";
+import { useWallet } from "@/hooks/useAppKit"
 
 interface Vault {
   id: string
@@ -34,6 +40,10 @@ export default function ReleaseFundsModal({ isOpen, onClose, vault }: ReleaseFun
   const [isValidAddress, setIsValidAddress] = useState(false)
   const [txHash, setTxHash] = useState("")
   const { releaseVault } = useVaults()
+    const { createTransactionLog, fetchLogByVaultId } = useBackend();
+      const { address, isConnected } = useWallet();
+    
+  
 
   // Reset modal state when opened
   const handleOpen = (open: boolean) => {
@@ -73,7 +83,18 @@ export default function ReleaseFundsModal({ isOpen, onClose, vault }: ReleaseFun
     try {
         const tx = await releaseVault(BigInt(Number(vault?.id)), recipientAddress);
         await tx.wait();
-        console.log("Vault approved:", BigInt(Number(vault?.id)));
+        console.log("Vault released:", BigInt(Number(vault?.id)));
+
+        const cuuid: string = uuidv4();
+        await createTransactionLog({
+          uuid: cuuid,
+          vaultId: Number(vault?.id).toString(),
+          txType: "released",
+          signer: address,
+          txHash: tx.hash
+        });
+
+
 
         setTxHash(tx.hash)
         setStep("success")
@@ -330,12 +351,16 @@ export default function ReleaseFundsModal({ isOpen, onClose, vault }: ReleaseFun
                   <ExternalLink className="w-4 h-4 mr-2" />
                   View Transaction
                 </Button>
-                <Button
+                {/* <Button
                   onClick={handleViewAllVaults}
                   className="flex-1 glow-button bg-accent hover:bg-accent/90 text-accent-foreground"
                 >
                   View All Vaults
-                </Button>
+                </Button> */}
+                <Link href="/app/vaults" className="flex-1 glow-button bg-accent hover:bg-accent/90 text-accent-foreground">
+                  <Eye className="w-4 h-4" />
+                  View All Vaults
+                </Link>
               </div>
             </div>
           )}

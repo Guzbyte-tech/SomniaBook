@@ -54,7 +54,7 @@ contract ChronoVault is ReentrancyGuard, Ownable {
     mapping(address => uint256[]) public signerVaults;
 
     // vaultId => signer => approved
-    mapping(uint256 => mapping(address => bool)) private _approvals;
+    mapping(uint256 => mapping(address => bool)) private _signerApprovals;
     
     // fast access: vaultId => signer => isSigner
     mapping(uint256 => mapping(address => bool)) private _isSigner;
@@ -249,7 +249,7 @@ contract ChronoVault is ReentrancyGuard, Ownable {
             }
             IERC20(vault.tokenAddress).safeTransfer(recipient, withdrawAmount);
         }
-        
+        _signerApprovals[vaultId] [msg.sender] = true;
         emit VaultWithdrawn(vaultId, recipient, withdrawAmount);
     }
     
@@ -304,6 +304,10 @@ contract ChronoVault is ReentrancyGuard, Ownable {
      */
     function isVaultSigner(uint256 vaultId, address signer) public view vaultExists(vaultId) returns (bool) {
         return _isSigner[vaultId][signer];
+    }
+
+    function isSigned(uint256 vaultId, address signer) public view vaultExists(vaultId) returns (bool) {
+        return vaults[vaultId].hasSigned[signer];
     }
     
     /**

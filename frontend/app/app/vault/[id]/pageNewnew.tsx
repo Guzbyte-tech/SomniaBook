@@ -21,122 +21,24 @@ import {
   Coins,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useVaults } from "@/hooks/useVaults"
+import { VaultStruct } from "@/types/vault"
 
-// Mock vault data - in real app this would come from API
-const mockVaultData = {
-  "vault-001": {
-    id: "vault-001",
-    token: "ETH",
-    amount: "10.5",
-    unlockTime: "2024-12-25T00:00:00Z",
-    approvals: 2,
-    threshold: 3,
-    status: "locked",
-    value: "$26,250",
-    createdAt: "2024-01-15T10:30:00Z",
-    creator: "0x1234567890abcdef1234567890abcdef12345678",
-    contractAddress: "0xabcdef1234567890abcdef1234567890abcdef12",
-    signers: [
-      {
-        address: "0x1234567890abcdef1234567890abcdef12345678",
-        name: "Alice (Creator)",
-        approved: true,
-        approvedAt: "2024-01-15T10:30:00Z",
-      },
-      {
-        address: "0x9abcdef01234567890abcdef01234567890abcdef",
-        name: "Bob",
-        approved: true,
-        approvedAt: "2024-01-16T14:20:00Z",
-      },
-      {
-        address: "0x567890abcdef1234567890abcdef1234567890ab",
-        name: "Charlie",
-        approved: false,
-        approvedAt: null,
-      },
-    ],
-    transactions: [
-      {
-        id: "tx-001",
-        type: "created",
-        timestamp: "2024-01-15T10:30:00Z",
-        signer: "0x1234567890abcdef1234567890abcdef12345678",
-        txHash: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef12",
-      },
-      {
-        id: "tx-002",
-        type: "approved",
-        timestamp: "2024-01-16T14:20:00Z",
-        signer: "0x9abcdef01234567890abcdef01234567890abcdef",
-        txHash: "0x9abcdef01234567890abcdef01234567890abcdef01234567890abcdef01234567",
-      },
-    ],
-  },
-  "vault-002": {
-    id: "vault-002",
-    token: "USDC",
-    amount: "50000",
-    unlockTime: "2024-11-15T12:00:00Z",
-    approvals: 3,
-    threshold: 3,
-    status: "ready",
-    value: "$50,000",
-    createdAt: "2024-01-10T14:20:00Z",
-    creator: "0x1234567890abcdef1234567890abcdef12345678",
-    contractAddress: "0xabcdef1234567890abcdef1234567890abcdef12",
-    signers: [
-      {
-        address: "0x1234567890abcdef1234567890abcdef12345678",
-        name: "Alice (Creator)",
-        approved: true,
-        approvedAt: "2024-01-10T14:20:00Z",
-      },
-      {
-        address: "0x9abcdef01234567890abcdef01234567890abcdef",
-        name: "Bob",
-        approved: true,
-        approvedAt: "2024-01-11T09:15:00Z",
-      },
-      {
-        address: "0x567890abcdef1234567890abcdef1234567890ab",
-        name: "Charlie",
-        approved: true,
-        approvedAt: "2024-01-12T16:45:00Z",
-      },
-    ],
-    transactions: [
-      {
-        id: "tx-003",
-        type: "created",
-        timestamp: "2024-01-10T14:20:00Z",
-        signer: "0x1234567890abcdef1234567890abcdef12345678",
-        txHash: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef12",
-      },
-      {
-        id: "tx-004",
-        type: "approved",
-        timestamp: "2024-01-11T09:15:00Z",
-        signer: "0x9abcdef01234567890abcdef01234567890abcdef",
-        txHash: "0x9abcdef01234567890abcdef01234567890abcdef01234567890abcdef01234567",
-      },
-      {
-        id: "tx-005",
-        type: "approved",
-        timestamp: "2024-01-12T16:45:00Z",
-        signer: "0x567890abcdef1234567890abcdef1234567890ab",
-        txHash: "0x567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef123456",
-      },
-    ],
-  },
-}
-
-function getTimeRemaining(unlockTime: string) {
+// ⏱ Timer
+function getTimeRemaining(unlockTime: number | string) {
   const now = new Date()
   const unlock = new Date(unlockTime)
   const diff = unlock.getTime() - now.getTime()
 
-  if (diff <= 0) return { text: "Ready to unlock", expired: true }
+  if (diff <= 0) {
+    return {
+      text: "Ready to unlock",
+      expired: true,
+      days: 0,
+      hours: 0,
+      minutes: 0,
+    }
+  }
 
   const days = Math.floor(diff / (1000 * 60 * 60 * 24))
   const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
@@ -158,23 +60,51 @@ function copyToClipboard(text: string) {
 export default function VaultDetailPage() {
   const params = useParams()
   const router = useRouter()
-  const [timeRemaining, setTimeRemaining] = useState({ text: "", expired: false, days: 0, hours: 0, minutes: 0 })
+  const { fetchVault } = useVaults()
+  const [vault, setVault] = useState<any | null>(null)
+  const [timeRemaining, setTimeRemaining] = useState({
+    text: "",
+    expired: false,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+  })
 
   const vaultId = params.id as string
-  const vault = mockVaultData[vaultId as keyof typeof mockVaultData]
 
   useEffect(() => {
-    if (!vault) return
+    if (!vaultId) return
 
-    const updateTimer = () => {
-      setTimeRemaining(getTimeRemaining(vault.unlockTime))
+    const loadVault = async () => {
+      try {
+        const data = await fetchVault(BigInt(vaultId))
+
+        // map struct → UI format
+        const mapped = {
+          id: vaultId,
+          token: data.tokenAddress,
+          amount: data.amount.toString(),
+          unlockTime: Number(data.unlockTimestamp),
+          threshold: data.requiredSignatures,
+          creator: data.creator,
+          contractAddress: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+          signers: data.signers.map((addr: string) => ({
+            address: addr,
+            approved: false, // will fetch via hasUserSigned if needed
+          })),
+          status: data.isUnlocked ? "ready" : "locked",
+          createdAt: Number(data.createdAt),
+        }
+
+        setVault(mapped)
+        setTimeRemaining(getTimeRemaining(mapped.unlockTime))
+      } catch (err) {
+        console.error("Error loading vault:", err)
+      }
     }
 
-    updateTimer()
-    const interval = setInterval(updateTimer, 60000) // Update every minute
-
-    return () => clearInterval(interval)
-  }, [vault])
+    loadVault()
+  }, [vaultId, fetchVault])
 
   if (!vault) {
     return (
@@ -196,7 +126,10 @@ export default function VaultDetailPage() {
     )
   }
 
-  const approvalProgress = (vault.approvals / vault.threshold) * 100
+  const approvalProgress =
+    vault.signers.length > 0
+      ? (vault.signers.filter((s: any) => s.approved).length / vault.threshold) * 100
+      : 0
 
   return (
     <div className="space-y-8">
@@ -208,7 +141,7 @@ export default function VaultDetailPage() {
         </Button>
         <div>
           <h1 className="text-3xl font-bold text-foreground">Vault Details</h1>
-          <p className="text-muted-foreground mt-1 font-mono">{vault.id}</p>
+          <p className="text-muted-foreground mt-1 font-mono">ID: {vault.id}</p>
         </div>
       </div>
 
@@ -245,10 +178,6 @@ export default function VaultDetailPage() {
                   <p className="text-2xl font-bold text-foreground">{vault.amount}</p>
                 </div>
                 <div className="text-center p-4 bg-muted/20 rounded-lg">
-                  <p className="text-sm text-muted-foreground">Value</p>
-                  <p className="text-2xl font-bold text-foreground">{vault.value}</p>
-                </div>
-                <div className="text-center p-4 bg-muted/20 rounded-lg">
                   <p className="text-sm text-muted-foreground">Status</p>
                   <p className="text-lg font-semibold text-foreground capitalize">{vault.status}</p>
                 </div>
@@ -266,13 +195,13 @@ export default function VaultDetailPage() {
                   {timeRemaining.text}
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Unlock Date: {new Date(vault.unlockTime).toLocaleString()}
+                  Unlock Date: {new Date(vault.unlockTime * 1000).toLocaleString()}
                 </p>
               </div>
             </CardContent>
           </Card>
 
-          {/* Signers Status */}
+          {/* Signers */}
           <Card className="bg-card/50 backdrop-blur-sm border-border/50">
             <CardHeader>
               <CardTitle className="flex items-center gap-3">
@@ -286,7 +215,7 @@ export default function VaultDetailPage() {
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">Approval Progress</span>
                   <span className="font-medium">
-                    {vault.approvals}/{vault.threshold} signatures
+                    {vault.signers.filter((s: any) => s.approved).length}/{vault.threshold} signatures
                   </span>
                 </div>
                 <Progress value={approvalProgress} className="h-2" />
@@ -294,7 +223,7 @@ export default function VaultDetailPage() {
 
               {/* Signers List */}
               <div className="space-y-3">
-                {vault.signers.map((signer, index) => (
+                {vault.signers.map((signer: any, index: number) => (
                   <div key={index} className="flex items-center justify-between p-4 bg-muted/20 rounded-lg">
                     <div className="flex items-center gap-3">
                       {signer.approved ? (
@@ -303,7 +232,7 @@ export default function VaultDetailPage() {
                         <XCircle className="w-5 h-5 text-muted-foreground" />
                       )}
                       <div>
-                        <p className="font-medium text-foreground">{signer.name}</p>
+                        <p className="font-medium text-foreground">{signer.address}</p>
                         <div className="flex items-center gap-2">
                           <p className="text-sm text-muted-foreground font-mono">
                             {signer.address.slice(0, 6)}...{signer.address.slice(-4)}
@@ -321,59 +250,15 @@ export default function VaultDetailPage() {
                     </div>
                     <div className="text-right">
                       {signer.approved ? (
-                        <div>
-                          <Badge variant="outline" className="text-accent border-accent/50">
-                            Approved
-                          </Badge>
-                          {signer.approvedAt && (
-                            <p className="text-xs text-muted-foreground mt-1">
-                              {new Date(signer.approvedAt).toLocaleDateString()}
-                            </p>
-                          )}
-                        </div>
+                        <Badge variant="outline" className="text-accent border-accent/50">
+                          Approved
+                        </Badge>
                       ) : (
                         <Badge variant="outline" className="text-muted-foreground">
                           Pending
                         </Badge>
                       )}
                     </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Transaction History */}
-          <Card className="bg-card/50 backdrop-blur-sm border-border/50">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3">
-                <Calendar className="w-6 h-6 text-primary" />
-                Transaction History
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {vault.transactions.map((tx, index) => (
-                  <div key={tx.id} className="flex items-center gap-4 p-4 bg-muted/20 rounded-lg">
-                    <div className="w-2 h-2 bg-accent rounded-full" />
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2">
-                        <p className="font-medium text-foreground capitalize">{tx.type}</p>
-                        <Badge variant="outline" className="text-xs">
-                          {new Date(tx.timestamp).toLocaleDateString()}
-                        </Badge>
-                      </div>
-                      <p className="text-sm text-muted-foreground font-mono">
-                        By: {tx.signer.slice(0, 6)}...{tx.signer.slice(-4)}
-                      </p>
-                    </div>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => window.open(`https://shannon-explorer.somnia.network/tx/${tx.txHash}`, "_blank")}
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </Button>
                   </div>
                 ))}
               </div>
@@ -398,21 +283,34 @@ export default function VaultDetailPage() {
                 <Button
                   className="w-full py-6 border-primary/50 text-primary hover:bg-primary/10 bg-transparent"
                   variant="outline"
-                  disabled={vault.approvals >= vault.threshold}
+                  disabled={approvalProgress >= 100}
                 >
                   <CheckCircle className="w-4 h-4 mr-2" />
-                  {vault.approvals >= vault.threshold ? "Fully Approved" : "Approve Transaction"}
+                  {approvalProgress >= 100 ? "Fully Approved" : "Approve Transaction"}
                 </Button>
               )}
-
               <Separator />
-
               <div className="space-y-2">
-                <Button variant="outline" className="w-full justify-start bg-transparent" size="sm">
+                <Button
+                  variant="outline"
+                  className="w-full justify-start bg-transparent"
+                  size="sm"
+                  onClick={() => copyToClipboard(vault.id)}
+                >
                   <Copy className="w-4 h-4 mr-2" />
                   Copy Vault ID
                 </Button>
-                <Button variant="outline" className="w-full justify-start bg-transparent" size="sm">
+                <Button
+                  variant="outline"
+                  className="w-full justify-start bg-transparent"
+                  size="sm"
+                  onClick={() =>
+                    window.open(
+                      `https://explorer.somnia.network/address/${vault.contractAddress}`,
+                      "_blank"
+                    )
+                  }
+                >
                   <ExternalLink className="w-4 h-4 mr-2" />
                   View on Explorer
                 </Button>
@@ -429,7 +327,7 @@ export default function VaultDetailPage() {
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Created:</span>
-                  <span className="font-medium">{new Date(vault.createdAt).toLocaleDateString()}</span>
+                  <span className="font-medium">{new Date(vault.createdAt * 1000).toLocaleDateString()}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Creator:</span>

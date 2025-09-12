@@ -7,25 +7,25 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-// export function getTimeRemaining(unlockTime: string) {
-//   const now = new Date()
-//   const unlock = new Date(unlockTime)
-//   const diff = unlock.getTime() - now.getTime()
+export function getTimeRemaining_T(unlockTime: string) {
+  const now = new Date()
+  const unlock = new Date(unlockTime)
+  const diff = unlock.getTime() - now.getTime()
 
-//   if (diff <= 0) return { text: "Ready to unlock", expired: true }
+  if (diff <= 0) return { text: "Ready to unlock", expired: true }
 
-//   const days = Math.floor(diff / (1000 * 60 * 60 * 24))
-//   const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-//   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
 
-//   return {
-//     text: `${days}d ${hours}h ${minutes}m remaining`,
-//     expired: false,
-//     days,
-//     hours,
-//     minutes,
-//   }
-// }
+  return {
+    text: `${days}d ${hours}h ${minutes}m remaining`,
+    expired: false,
+    days,
+    hours,
+    minutes,
+  }
+}
 
 export function copyToClipboard(text: string) {
   navigator.clipboard.writeText(text)
@@ -155,3 +155,16 @@ export function formatTimestamp(timestamp: number | string): string {
   return date.toISOString();
 }
 
+export function formatDateTimeClean(dateString: string): string {
+  const date = new Date(dateString);
+
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const dd = String(date.getDate()).padStart(2, "0");
+
+  const hh = String(date.getHours()).padStart(2, "0");
+  const ii = String(date.getMinutes()).padStart(2, "0");
+  const ss = String(date.getSeconds()).padStart(2, "0");
+
+  return `${yyyy}-${mm}-${dd} ${hh}:${ii}:${ss}`;
+}

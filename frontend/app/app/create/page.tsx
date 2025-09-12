@@ -20,6 +20,10 @@ import { useContract } from "@/hooks/useContract";
 import type { TransactionResponse } from "ethers";
 import { useERC20 } from "@/hooks/useERC20";
 import { VaultSuccessModal } from "@/components/vault-success-modal";
+import { useBackend } from "@/hooks/useBackend";
+import { v4 as uuidv4 } from "uuid";
+import { useWallet } from "@/hooks/useAppKit";
+
 
 
 export default function CreateVaultPage() {
@@ -36,6 +40,8 @@ export default function CreateVaultPage() {
     vaultId: string
   } | null>(null)
   const { writeContract, getContract } = useContract();
+  const { createTransactionLog, fetchLogByVaultId } = useBackend();
+  const { address, isConnected } = useWallet();
   
 
   const addSigner = () => {
@@ -114,6 +120,9 @@ export default function CreateVaultPage() {
       );
       console.log("Predicted Vault ID:", predictedVaultId.toString());
       const vaultId = predictedVaultId.toString(); // Use predicted ID for UI
+      const cuuid: string = uuidv4();
+
+      
 
     if (token.address !== "0x0000000000000000000000000000000000000000") {
        // ERC20: ensure allowance
@@ -139,7 +148,18 @@ export default function CreateVaultPage() {
           unlockBlockHeight,
         ],{ value: token.address === "0x0000000000000000000000000000000000000000" ? amountInWei : 0 }
       ) as TransactionResponse;
-    
+      
+      // 2. Create transaction log
+      const transactionLog = await createTransactionLog({
+        uuid: cuuid,
+        vaultId: vaultId.toString(),
+        txType: "created",
+        signer: address,
+        txHash: tx.hash
+      });
+
+      console.log("Transaction log created:", transactionLog);
+
 
       console.log("tx sent:", tx.hash);
       const receipt = await tx.wait();
