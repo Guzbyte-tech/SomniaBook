@@ -58,7 +58,6 @@ export function useVaults() {
   const signVault = async (vaultId: bigint): Promise<TransactionResponse> => {
     if (!isConnected || !address) throw new Error("Wallet not connected");;
     return await writeContract("signVault", [vaultId]) as TransactionResponse;
-
   }
 
   const releaseVault = async (vaultId: bigint, recipient: string): Promise<TransactionResponse> => {

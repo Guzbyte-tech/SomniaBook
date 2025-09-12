@@ -45,16 +45,32 @@ export function getTimeRemaining(unlockTime: string) {
   return `${hours}h remaining`
 }
 
+// export function getStatusColor(status: string) {
+//   switch (status) {
+//     case "ready":
+//       return "bg-accent text-accent-foreground"
+//     case "locked":
+//       return "bg-secondary text-secondary-foreground"
+//     default:
+//       return "bg-muted text-muted-foreground"
+//   }
+// }
+
+
+
 export function getStatusColor(status: string) {
   switch (status) {
     case "ready":
-      return "bg-accent text-accent-foreground"
+      return "bg-accent text-accent-foreground";        // bright/primary
     case "locked":
-      return "bg-secondary text-secondary-foreground"
+      return "bg-secondary text-secondary-foreground";  // neutral/soft
+    case "withdrawn":
+      return "bg-muted text-muted-foreground";          // greyed out
     default:
-      return "bg-muted text-muted-foreground"
+      return "bg-gray-500 text-white";                  // fallback
   }
 }
+
 
 export const tokens = [
   {
@@ -69,6 +85,7 @@ export const tokens = [
   // { symbol: "WETH", name: "Wrapped Bitcoin", decimals: 8 },
 ];
 
+const priceCache: Record<string, { price: number; timestamp: number }> = {};
 
 /**
  * Convert token amount to human-readable and get USD value from CoinGecko
@@ -86,16 +103,33 @@ export async function parseToken(
   // Convert to human-readable
   const amount = ethers.formatUnits(rawAmount, decimals);
 
-  if(contractAddress === "0x0000000000000000000000000000000000000000") {
-    contractAddress = "0x1B0F6590d21dc02B92ad3A7D00F8884dC4f1aed9"; // SOMI address for CoinGecko
+  // Handle native SOMI -> fallback to real contract for CoinGecko
+  if (contractAddress === "0x0000000000000000000000000000000000000000") {
+    contractAddress = "0x1B0F6590d21dc02B92ad3A7D00F8884dC4f1aed9"; // SOMI address
   }
 
-  // Fetch USD price from CoinGecko
-  const priceData = await axios.get(
-    `https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=${contractAddress}&vs_currencies=usd`
-  );
+  const key = contractAddress.toLowerCase();
+  const now = Date.now();
+  const TWO_HOURS = 3 * 60 * 60 * 1000;
 
-  const usdPrice = priceData.data[contractAddress.toLowerCase()]?.usd || 0;
+  let usdPrice: number;
+
+
+  if (priceCache[key] && now - priceCache[key].timestamp < TWO_HOURS) {
+    usdPrice = priceCache[key].price;
+  } else {
+    // ⏳ Fetch from CoinGecko
+    const priceData = await axios.get(
+      `https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=${key}&vs_currencies=usd`
+    );
+
+    usdPrice = priceData.data[key]?.usd || 0;
+
+    // Save in cache
+    priceCache[key] = { price: usdPrice, timestamp: now };
+  }
+
+  // Compute USD amount
   const usdAmount = (parseFloat(amount) * usdPrice).toFixed(2);
 
   return {

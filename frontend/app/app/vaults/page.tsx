@@ -23,17 +23,18 @@ import {
   AlertCircle,
 } from "lucide-react";
 import Link from "next/link";
-import { getTimeRemaining, getStatusColor, tokenDetails, parseToken, formatTimestamp } from "@/lib/utils";
+import {
+  getTimeRemaining,
+  getStatusColor,
+  tokenDetails,
+  parseToken,
+  formatTimestamp,
+} from "@/lib/utils";
 import { useVaults } from "@/hooks/useVaults";
 import { Vault, VaultStruct } from "@/types/vault";
 import { ethers } from "ethers";
 import { useWallet } from "@/hooks/useAppKit";
 import ReleaseFundsModal from "@/components/release-vault-modal";
-
-
-
-
-
 
 export default function VaultsPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -44,8 +45,8 @@ export default function VaultsPage() {
   const [loading, setLoading] = useState(true);
   const [vaults, setVaults] = useState<Vault[]>([]);
   const { address, isConnected } = useWallet();
-  const [isReleaseModalOpen, setIsReleaseModalOpen] = useState(false)
-  const [selectedVault, setSelectedVault] = useState<any>(null)
+  const [isReleaseModalOpen, setIsReleaseModalOpen] = useState(false);
+  const [selectedVault, setSelectedVault] = useState<any>(null);
 
   const loadVaults = useCallback(async () => {
     try {
@@ -71,7 +72,7 @@ export default function VaultsPage() {
             isUnlocked,
             isWithdrawn,
             currentSignatures,
-            createdAt
+            createdAt,
           ] = vault;
 
           const tokenInfo = tokenDetails(tokenAddress);
@@ -90,7 +91,11 @@ export default function VaultsPage() {
             unlockTime: formatTimestamp(Number(unlockTimestamp)) as string,
             approvals: Number(currentSignatures ?? 0),
             threshold: Number(requiredSignatures ?? 0),
-            status: (isUnlocked ? "ready" : "locked") as "locked" | "ready",
+            status: isWithdrawn
+              ? "released"
+              : isUnlocked
+              ? "ready"
+              : ("locked" as "locked" | "ready" | "released"),
             signers: signers,
             createdAt: formatTimestamp(createdAt) as string,
             value: parseValue.usd as string,
@@ -104,8 +109,7 @@ export default function VaultsPage() {
           : 0;
         return acc + numeric;
       }, 0);
-        setTotalValue(Number(totalUsdValue.toFixed(2)));
-
+      setTotalValue(Number(totalUsdValue.toFixed(2)));
 
       // 3. Update state
       setVaults(mapped);
@@ -114,12 +118,11 @@ export default function VaultsPage() {
     } catch (err) {
       console.error("Error fetching vaults:", err);
     }
-  }, [address, isConnected]); 
+  }, [address, isConnected]);
 
   useEffect(() => {
     loadVaults();
   }, [loadVaults]);
-
 
   const filteredVaults = vaults.filter((vault) => {
     const matchesSearch =
@@ -132,15 +135,15 @@ export default function VaultsPage() {
     return matchesSearch && matchesStatus && matchesToken;
   });
 
-  const handleApprove = async(vaultId: string) => {
+  const handleApprove = async (vaultId: string) => {
     console.log(`Approving vault ${vaultId}`);
     // Here you would implement the approval logic
     try {
-     const tx = await signVault(BigInt(vaultId));
-     await tx.wait();
-     console.log("Vault approved:", vaultId);
-     loadVaults();
-    } catch(err: any) {
+      const tx = await signVault(BigInt(vaultId));
+      await tx.wait();
+      console.log("Vault approved:", vaultId);
+      loadVaults();
+    } catch (err: any) {
       console.error("Error approving vault:", err);
 
       let message = "Transaction failed";
@@ -162,18 +165,15 @@ export default function VaultsPage() {
       // showErrorModal(message);
 
       throw new Error(message, { cause: err });
-      throw new Error("Error approving vault", { cause: err });
-    } finally {
-
     }
   };
 
   const handleRelease = (vaultId: string) => {
     console.log(`Releasing funds from vault ${vaultId}`);
-    const vault = vaults.find((v) => v.id === vaultId)
+    const vault = vaults.find((v) => v.id === vaultId);
     if (vault) {
-      setSelectedVault(vault)
-      setIsReleaseModalOpen(true)
+      setSelectedVault(vault);
+      setIsReleaseModalOpen(true);
     }
   };
 
@@ -182,7 +182,7 @@ export default function VaultsPage() {
       <div className="flex justify-center items-center h-64">
         <p className="text-muted-foreground">Loading vaults...</p>
       </div>
-    )
+    );
   }
 
   return (
@@ -228,6 +228,7 @@ export default function VaultsPage() {
                   <SelectItem value="all">All Status</SelectItem>
                   <SelectItem value="locked">Locked</SelectItem>
                   <SelectItem value="ready">Ready</SelectItem>
+                  <SelectItem value="released">Released</SelectItem>
                 </SelectContent>
               </Select>
 
@@ -298,7 +299,9 @@ export default function VaultsPage() {
               <Users className="w-8 h-8 text-primary" />
               <div>
                 <p className="text-sm text-muted-foreground">Total Value</p>
-                <p className="text-2xl font-bold text-foreground">${totalValue}</p>
+                <p className="text-2xl font-bold text-foreground">
+                  ${totalValue}
+                </p>
               </div>
             </div>
           </CardContent>
@@ -336,7 +339,9 @@ export default function VaultsPage() {
                       <Badge className={getStatusColor(vault.status)}>
                         {vault.status === "ready"
                           ? "Ready to Release"
-                          : "Time Locked"}
+                          : vault.status === "locked"
+                          ? "Time Locked"
+                          : "Funds Released"}
                       </Badge>
                       <span className="text-sm text-muted-foreground font-mono">
                         {vault.name}-{vault.id}
@@ -346,9 +351,10 @@ export default function VaultsPage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                       <div className="flex items-center gap-2">
                         <Clock className="w-4 h-4 text-muted-foreground" />
-                        <span className="text-muted-foreground">Unlock:</span>
+                        <span className="text-muted-foreground">{vault.status === "released" ? "Status" : "Unlock"}:</span>
                         <span className="font-medium">
-                          {getTimeRemaining(vault.unlockTime)}
+                          {vault.status === "released" ? "Released" : getTimeRemaining(vault.unlockTime)}
+                          {/* {getTimeRemaining(vault.unlockTime)} */}
                         </span>
                       </div>
 
@@ -389,31 +395,32 @@ export default function VaultsPage() {
                         <Eye className="w-4 h-4 mr-2 text-gray-400" />
                         Details
                       </Button>
-
                     </Link>
 
-                    {vault.status === "ready" ? (
+                    {vault.status === "released" ? (
+                      <Button
+                        disabled
+                        className="
+                          bg-gray-800 
+                          text-gray-400 
+                          border border-gray-600/50
+                          rounded-lg
+                          cursor-not-allowed
+                        "
+                      >
+                        Funds Released
+                      </Button>
+                    ) : vault.status === "ready" ? (
                       <Button
                         onClick={() => handleRelease(vault.id)}
-                        className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                        className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-lg transition-colors duration-200"
                       >
                         Release Funds
                       </Button>
                     ) : (
                       <Button
                         onClick={() => handleApprove(vault.id)}
-                        className="
-                          bg-[#062E27] 
-                          text-[#39D4B3] 
-                          border border-[#39D4B3]/40
-                          rounded-lg
-                          hover:bg-[#0A4038]
-                          hover:text-[#39D4B3]
-                          transition-colors 
-                          duration-200
-                          disabled:opacity-50 
-                          disabled:cursor-not-allowed
-                        "
+                        className="bg-[#062E27] text-[#39D4B3] border border-[#39D4B3]/40 rounded-lg hover:bg-[#0A4038] hover:text-[#39D4B3] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={vault.approvals >= vault.threshold}
                       >
                         {vault.approvals >= vault.threshold

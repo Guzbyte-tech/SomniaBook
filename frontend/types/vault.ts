@@ -22,7 +22,7 @@ export type Vault = {
   unlockTime: string
   approvals: number
   threshold: number
-  status: "locked" | "ready"
+  status: "locked" | "ready" | "released"
   signers: { address: string; approved: boolean }[],
   createdAt: string
   value?: string
