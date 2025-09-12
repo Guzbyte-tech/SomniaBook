@@ -10,9 +10,11 @@ interface VaultSuccessModalProps {
   onClose: () => void
   transactionHash: string
   vaultId: string
+  message?: string
 }
 
-export function VaultSuccessModal({ isOpen, onClose, transactionHash, vaultId }: VaultSuccessModalProps) {
+export function VaultSuccessModal({ isOpen, onClose, transactionHash, vaultId, message }: VaultSuccessModalProps) {
+
   const explorerUrl = `https://shannon-explorer.somnia.network/tx/${transactionHash}`
 
   return (
@@ -31,7 +33,7 @@ export function VaultSuccessModal({ isOpen, onClose, transactionHash, vaultId }:
 
         <div className="space-y-6 pt-4">
           <div className="text-center space-y-2">
-            <p className="text-muted-foreground">Your vault has been created and deployed to the blockchain.</p>
+            <p className="text-muted-foreground">{message}</p>
             <div className="bg-muted/20 rounded-lg p-3">
               <p className="text-sm font-mono text-foreground">Vault ID: {vaultId}</p>
             </div>

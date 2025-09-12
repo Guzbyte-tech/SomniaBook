@@ -14,29 +14,13 @@ import {
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Plus, X, Clock, Users, Shield } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, tokens } from "@/lib/utils";
 import { parseUnits } from "ethers";
 import { useContract } from "@/hooks/useContract";
 import type { TransactionResponse } from "ethers";
 import { useERC20 } from "@/hooks/useERC20";
 import { VaultSuccessModal } from "@/components/vault-success-modal";
 
-
-
-
-
-const tokens = [
-  {
-    symbol: "STT",
-    name: "Somnia Token STT",
-    decimals: 18,
-    address: "0x0000000000000000000000000000000000000000",
-  },
-  // { symbol: "USDC", name: "USD Coin", decimals: 6, },
-  // { symbol: "USDT", name: "Tether USD", decimals: 6 },
-  // { symbol: "DAI", name: "Dai Stablecoin", decimals: 18 },
-  // { symbol: "WETH", name: "Wrapped Bitcoin", decimals: 8 },
-];
 
 export default function CreateVaultPage() {
   const [selectedToken, setSelectedToken] = useState("");
@@ -142,10 +126,8 @@ export default function CreateVaultPage() {
         await approveTx.wait();
         console.log("Approval confirmed");
       }
-      
     } 
      
-
       tx = await writeContract("createVault", [
           vaultName,
           validSigners,
@@ -477,6 +459,7 @@ export default function CreateVaultPage() {
           onClose={handleCloseSuccessModal}
           transactionHash={createdVaultData.transactionHash}
           vaultId={createdVaultData.vaultId}
+          message="Your vault has been created and deployed to the blockchain."
         />
       )}
     </div>

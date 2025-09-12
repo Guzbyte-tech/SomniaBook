@@ -29,6 +29,8 @@ export function useContract() {
   ): Promise<T> => {
     const contract = await getContract();
     if (!contract[method]) throw new Error(`Method ${method} not found in ABI`);
+      console.log("readContract call:", method, args);
+
     return contract[method](...args);
   };
 
