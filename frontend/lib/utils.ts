@@ -123,7 +123,9 @@ export async function parseToken(
       `https://api.coingecko.com/api/v3/simple/token_price/ethereum?contract_addresses=${key}&vs_currencies=usd`
     );
 
-    usdPrice = priceData.data[key]?.usd || 0;
+    // usdPrice = priceData.data[key]?.usd || 0;
+    const data = priceData.data as Record<string, { usd: number }>;
+    usdPrice = data[key.toLowerCase()]?.usd || 0;
 
     // Save in cache
     priceCache[key] = { price: usdPrice, timestamp: now };
