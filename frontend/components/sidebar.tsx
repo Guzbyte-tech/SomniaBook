@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { ConnectWalletButton } from "@/components/connect-wallet-button"
 import { useWallet } from '../hooks/useAppKit'
 import { LayoutDashboard, Vault, Plus, Menu, X, Clock } from "lucide-react"
+import Image from "next/image";
 
 const navigation = [
   {
@@ -47,7 +48,7 @@ export function Sidebar() {
       {/* Sidebar */}
       <div
         className={cn(
-          "fixed inset-y-0 left-0 z-40 w-64 bg-card/80 backdrop-blur-sm border-r border-border/50 transform transition-transform duration-200 ease-in-out md:relative md:translate-x-0",
+          "fixed inset-y-0 left-0 z-40 w-64 bg-card/80 backdrop-blur-sm border-r border-border/50 transform transition-transform duration-200 ease-in-out md:relative md:translate-x-0 md:h-screen",
           isOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
@@ -55,10 +56,13 @@ export function Sidebar() {
           {/* Logo */}
           <div className="p-6 border-b border-border/50">
             <Link href="/" className="flex items-center gap-2">
-              <Clock className="w-8 h-8 text-accent" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                ChronoVault
-              </span>
+              <Image
+                src="/logo_1.png"
+                alt="ChronoVault Logo"
+                width={180}
+                height={60}
+                className="h-10 w-auto"
+              />
             </Link>
           </div>
 

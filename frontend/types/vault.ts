@@ -26,6 +26,7 @@ export type Vault = {
   signers: { address: string; approved: boolean }[],
   createdAt: string
   value?: string
+  hasSigned?: boolean
 }
 
 export type VaultDetail = {

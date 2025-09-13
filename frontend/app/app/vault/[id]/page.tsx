@@ -95,6 +95,20 @@ export default function VaultDetailPage() {
       );
 
       // const hasSigned = await hasSignedVault(id, address);
+      
+      //  resolve all signer approvals in parallel
+    const signerApprovals = await Promise.all(
+      signers.map(async (addr: string) => {
+        const approved = await hasSignedVault(id, addr);
+        return {
+          address: addr,
+          name: addr,
+          approved: approved, // extra safety
+          approvedAt: "",
+        };
+      })
+    );
+
 
 
       const vaultData: VaultDetail = {
@@ -111,12 +125,8 @@ export default function VaultDetailPage() {
         creator,
         contractAddress: "",
         // Optional fields if you want to populate them later
-        signers: signers.map( (addr: string) => ({
-          address: addr,
-          name: addr, // later you can resolve ENS or DB name
-          approved:  hasSignedVault(id, addr),
-          approvedAt: "",
-        })),
+        
+        signers: signerApprovals, 
         transactions: [],
       };
 

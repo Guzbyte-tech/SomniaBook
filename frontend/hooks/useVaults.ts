@@ -40,7 +40,8 @@ export function useVaults() {
   };
 
   const hasSignedVault = async (vaulId: bigint, address: string) => {
-    return (await signerInfo(vaulId)).hasSigned.addresses.includes(address);
+    const result = await readContract("isSigned", [vaulId, address]);
+    return Boolean(result);
   }
 
   // Combined: all vaults where user is creator or signer
